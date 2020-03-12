@@ -1,22 +1,70 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const faker = require('faker');
-const { Agent } = require('./database/index.js');
+const { Agent, Property } = require('./database/index.js');
+
+const generateRandomNum = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
 
 const seedSellersAgents = () => {
-  const quantity = 10;
+  const quantity = 1;
   const agents = [];
-  for (let i = 0; i < quantity; i++) {
+  for (let i = 0; i < quantity; i += 1) {
     agents.push(new Agent({
       name: faker.name.findName(),
       title: 'Seller\'s Agent',
-      rating: Math.floor((Math.random() * 5)) + 1,
-      numSales: Math.floor((Math.random() * 30)),
+      rating: generateRandomNum(3, 5),
+      numSales: generateRandomNum(0, 30),
       phoneNum: faker.phone.phoneNumber(),
     }));
   }
   return agents;
 };
 
+const seedPremierAgents = () => {
+  const quantity = generateRandomNum(2, 3);
+  const agents = [];
+  for (let i = 0; i < quantity; i += 1) {
+    agents.push(new Agent({
+      name: faker.name.findName(),
+      title: 'Premier Agent',
+      rating: generateRandomNum(3, 5),
+      numSales: generateRandomNum(0, 30),
+      phoneNum: faker.phone.phoneNumber(),
+    }));
+  }
+  return agents;
+};
+
+const seedProperties = () => {
+  const quantity = 100;
+  const properties = [];
+
+  const now = new Date();
+  const oneMonth = new Date();
+  oneMonth.setMonth(now.getMonth() + 1);
+
+  const sellersAgent = seedSellersAgents();
+  const premierAgent = seedPremierAgents();
+
+  for (let i = 0; i < quantity; i += 1) {
+    properties.push(new Property({
+      address: `${faker.address.streetAddress()}, 
+        ${faker.address.city()}, 
+        ${faker.address.zipCode()}`,
+      numBd: generateRandomNum(1, 5),
+      numBa: generateRandomNum(1, 5),
+      sqft: generateRandomNum(10, 30) * 100,x
+      availableOn: faker.date.between(now, oneMonth),
+      marketValEst: generateRandomNum(500000, 4000000),
+      listedby: sellersAgent.concat(premierAgent),
+    }));
+  }
+  return properties;
+};
+
 module.exports = {
   seedSellersAgents,
+  seedPremierAgents,
+  seedProperties,
 };
