@@ -1,0 +1,53 @@
+{
+  "name": "abode-summary-contacts",
+  "version": "1.0.0",
+  "description": "summary and contacts modules for Abode by apex.io",
+  "main": "./server/index.js",
+  "scripts": {
+    "test": "jest --config ./jest.config.json",
+    "react-dev": "webpack -d --watch",
+    "server": "nodemon \"./server/index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apex-io/abode-summary-contacts.git"
+  },
+  "author": "dhkaneda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apex-io/abode-summary-contacts/issues"
+  },
+  "homepage": "https://github.com/apex-io/abode-summary-contacts#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^25.1.0",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
+    "scss-loader": "0.0.1",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}
