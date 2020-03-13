@@ -57,11 +57,10 @@ find({}, (docs) => {
     data.forEach((property) => {
       save(property, () => {});
     });
-    console.log(`Database seeded with ${quantity}`);
+    console.log(`Database seeded with ${quantity} property entries`);
   } else {
     console.log('Database contains sufficient seeded data');
   }
-  process.exit();
 });
 
 module.exports = {
