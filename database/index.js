@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/abode_dh', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/abode_dh', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const propertySchema = mongoose.Schema({
   address: String,
