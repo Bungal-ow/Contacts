@@ -1,6 +1,12 @@
+/* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
 const faker = require('faker');
-const { Agent, Property } = require('./database/index.js');
+const {
+  Agent,
+  Property,
+  save,
+  find,
+} = require('./database/index.js');
 
 const generateRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -18,8 +24,7 @@ const seedAgents = (quantity, title) => {
   return agents;
 };
 
-const seedProperties = () => {
-  const quantity = 100;
+const seedProperties = (quantity) => {
   const properties = [];
 
   const now = new Date();
@@ -44,6 +49,20 @@ const seedProperties = () => {
   }
   return properties;
 };
+
+find({}, (docs) => {
+  const quantity = 100 - docs.length;
+  if (docs.length >= 0 && docs.length < 100) {
+    const data = seedProperties(quantity);
+    data.forEach((property) => {
+      save(property, () => {});
+    });
+    console.log(`Database seeded with ${quantity}`);
+  } else {
+    console.log('Database contains sufficient seeded data');
+  }
+  process.exit();
+});
 
 module.exports = {
   seedProperties,
