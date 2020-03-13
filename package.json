@@ -7,7 +7,7 @@
     "test": "jest --config ./jest.config.json",
     "react-dev": "webpack -d --watch",
     "server": "nodemon \"./server/index.js\"",
-    "seed": "node seed.js"
+    "seed": "node ./database/seed.js"
   },
   "repository": {
     "type": "git",
