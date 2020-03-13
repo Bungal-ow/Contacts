@@ -10,7 +10,7 @@ const propertySchema = mongoose.Schema({
   sqft: Number,
   availableOn: Date,
   marketValEst: Number,
-  listedby: [],
+  contact: [],
 });
 
 const agentSchema = mongoose.Schema({
