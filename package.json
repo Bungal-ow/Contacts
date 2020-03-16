@@ -35,6 +35,7 @@
     "faker": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^25.1.0",
+    "jest-enzyme": "^7.1.2",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
     "scss-loader": "0.0.1",
