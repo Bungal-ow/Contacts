@@ -4,7 +4,7 @@
   "description": "summary and contacts modules for Abode by apex.io",
   "main": "./server/index.js",
   "scripts": {
-    "test": "jest --config ./jest.config.json",
+    "test": "jest",
     "react-dev": "webpack -d --watch",
     "server": "nodemon \"./server/index.js\"",
     "seed": "node ./database/seed.js"
@@ -26,8 +26,6 @@
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.20.1",
@@ -47,6 +45,8 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "bluebird": "^3.7.2",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
