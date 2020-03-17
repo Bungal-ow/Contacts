@@ -1,25 +1,25 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
 
-const dd = {
-  price: 2750000,
-  numBD: 4,
-  numBA: 3,
-  sqft: 32116,
-  address: '46 Cook St, San Francisco, 94118',
-  format: 'for sale',
-  hasAbestimate: true,
-  estPayment: 12780,
-};
+// const dd = {
+//   price: 2750000,
+//   numBD: 4,
+//   numBA: 3,
+//   sqft: 32116,
+//   address: '46 Cook St, San Francisco, 94118',
+//   format: 'for sale',
+//   hasAbestimate: true,
+//   estPayment: 12780,
+// };
 
-const hasAbestimate = () => {
-  if (dd.hasAbestimate) {
-    return 'Abestimate';
-  }
-  return '';
-};
+// const hasAbestimate = () => {
+//   if (summary.hasAbestimate) {
+//     return 'Abestimate';
+//   }
+//   return '';
+// };
 
-const Summary = () => (
+const Summary = ({summary}) => (
   <div>
     <div className="header">
       <span>Abode</span>
@@ -29,24 +29,27 @@ const Summary = () => (
     </div>
     <div className="body">
       <div className="specs">
-        <span>{dd.price}</span>
-        <span>{`${dd.numBD}bd`}</span>
-        <span>{`${dd.numBA}ba`}</span>
-        <span>{`${dd.sqft}sqft.`}</span>
+        <span>{summary.price}</span>
+        <span>{`${summary.numBD}bd`}</span>
+        <span> | </span>
+        <span>{`${summary.numBA}ba`}</span>
+        <span> | </span>
+        <span>{`${summary.sqft}sqft.`}</span>
       </div>
       <div className="address">
-        {dd.address}
+        {summary.address}
       </div>
       <div className="format">
         <div>
-          <span>{dd.format}</span>
-          <span>
+          <span>{summary.format}</span>
+          <span> | </span>
+          {/* <span>
             {hasAbestimate()}
-          </span>
+          </span> */}
         </div>
         <div>
           <span>
-            {`Est. payment ${dd.estPayment}/mo.`}
+            {`Est. payment ${summary.estPayment}/mo.`}
           </span>
           <span>
             Get pre-qualified
