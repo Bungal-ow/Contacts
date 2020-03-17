@@ -46,13 +46,14 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "bluebird": "^3.7.2",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
     "mongoose": "^5.9.4",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "styled-components": "^5.0.1"
   }
 }
