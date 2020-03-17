@@ -21,6 +21,17 @@ describe('Summary', () => {
     expect(wrapper.contains(2750000)).toBe(true);
   });
 
+  it('display the number of bedrooms and bathrooms', () => {
+    const wrapper = shallow(<Summary summary={summary} />);
+    expect(wrapper.contains('4bd')).toBe(true);
+    expect(wrapper.contains('3ba')).toBe(true);
+  });
+
+  it('display the property square footage', () => {
+    const wrapper = shallow(<Summary summary={summary} />);
+    expect(wrapper.contains('32116 sqft.')).toBe(true);
+  });
+
   it('display the address', () => {
     const wrapper = shallow(<Summary summary={summary} />);
     expect(wrapper.contains('46 Cook St, San Francisco, 94118')).toBe(true);
