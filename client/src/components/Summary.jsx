@@ -34,7 +34,7 @@ class Summary extends Component {
             <span> | </span>
             <span>{`${summary.numBA}ba`}</span>
             <span> | </span>
-            <span>{`${summary.sqft}sqft.`}</span>
+            <span>{`${summary.sqft} sqft.`}</span>
           </div>
           <div className="address">
             {summary.address}
