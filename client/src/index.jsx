@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Summary from './components/Summary';
 
-const title = 'React with Webpack and Babel YAY';
 ReactDOM.render(
-  <div>{title}</div>,
+  <Summary />,
   document.getElementById('app'),
 );
