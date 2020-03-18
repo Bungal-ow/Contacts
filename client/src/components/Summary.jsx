@@ -5,14 +5,29 @@
 // import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import IconButton from './IconButton';
+import Modal from './Modal';
 import shareIcon from '../assets/arrow.svg';
 import heartIcon from '../assets/heart.svg';
 import moreIcon from '../assets/more.svg';
+import './Modal.css';
 
 class Summary extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: false,
+    };
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
+  }
+
+  showModal() {
+    this.setState({ show: true });
+  }
+
+  hideModal() {
+    this.setState({ show: false });
+  }
 
   hasAbestimate() {
     const { summary } = this.props;
@@ -23,6 +38,7 @@ class Summary extends Component {
   }
 
   render() {
+    const { show } = this.state;
     const { summary } = this.props;
     return (
       <div>
@@ -63,9 +79,13 @@ class Summary extends Component {
           </div>
         </div>
         <div className="footer">
-          <button>contact agent</button>
-          <button>take a tour</button>
+          <button type="button" onClick={this.showModal}>contact agent</button>
+          <button type="button" onClick={this.showModal}>take a tour</button>
         </div>
+        <Modal show={show} handleClose={this.hideModal}>
+          <p>Modal</p>
+          <p>Data</p>
+        </Modal>
       </div>
     );
   }
