@@ -3,6 +3,10 @@
 /* eslint-disable react/button-has-type */
 // import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import IconButton from './IconButton';
+import shareIcon from '../assets/arrow.svg';
+import heartIcon from '../assets/heart.svg';
+import moreIcon from '../assets/more.svg';
 
 class Summary extends Component {
   // constructor(props) {
@@ -23,13 +27,13 @@ class Summary extends Component {
       <div>
         <div className="header">
           <span>Abode</span>
-          <span>save</span>
-          <span>share</span>
-          <span>more</span>
+          <IconButton icon={heartIcon} text="Save" />
+          <IconButton icon={shareIcon} text="Share" />
+          <IconButton icon={moreIcon} text="More" />
         </div>
         <div className="body">
           <div className="specs">
-            <span>{summary.price}</span>
+            <span>${summary.price}</span>
             <span>{`${summary.numBD}bd`}</span>
             <span> | </span>
             <span>{`${summary.numBA}ba`}</span>
