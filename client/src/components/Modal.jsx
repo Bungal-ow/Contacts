@@ -1,16 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-const Modal = ({ handleClose, show, children }) => {
-  const showHideClassName = show ? 'modal display-block' : 'modal display-none';
-  return (
-    <div className={showHideClassName}>
-      <section className="modal-main">
-        {children}
-        <button type="button" onClick={handleClose}>close</button>
-      </section>
-    </div>
-  );
-};
+const Modal = ({ handleClose }) => (
+  <div className="modal display-block">
+    <section className="modal modal-main">
+      <p>Modal</p>
+      <p>Data</p>
+      <button type="button" onClick={handleClose}>close</button>
+    </section>
+  </div>
+);
 
 export default Modal;

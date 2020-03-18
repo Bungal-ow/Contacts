@@ -9,7 +9,7 @@ import Modal from './Modal';
 import shareIcon from '../assets/arrow.svg';
 import heartIcon from '../assets/heart.svg';
 import moreIcon from '../assets/more.svg';
-import './Modal.css';
+import '../styles/Modal.css';
 
 class Summary extends Component {
   constructor(props) {
@@ -40,6 +40,12 @@ class Summary extends Component {
   render() {
     const { show } = this.state;
     const { summary } = this.props;
+    let modal;
+
+    if (show) {
+      modal = <Modal show={show} handleClose={this.hideModal} />;
+    }
+
     return (
       <div>
         <div className="header">
@@ -82,10 +88,7 @@ class Summary extends Component {
           <button type="button" onClick={this.showModal}>contact agent</button>
           <button type="button" onClick={this.showModal}>take a tour</button>
         </div>
-        <Modal show={show} handleClose={this.hideModal}>
-          <p>Modal</p>
-          <p>Data</p>
-        </Modal>
+        {modal}
       </div>
     );
   }
