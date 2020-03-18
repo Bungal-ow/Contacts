@@ -11,7 +11,7 @@ const summary = {
   format: 'for sale',
   hasAbestimate: true,
   estPayment: 12780,
-}
+};
 
 ReactDOM.render(
   <Summary summary={summary} />,
