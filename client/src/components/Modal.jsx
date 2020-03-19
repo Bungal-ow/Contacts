@@ -21,8 +21,8 @@ const Modal = ({ handleClose, type }) => {
   return (
     <div className="modal display-block">
       <section className="modal modal-main">
-        {body}
         <button type="button" onClick={handleClose}>close</button>
+        {body}
       </section>
     </div>
   );
