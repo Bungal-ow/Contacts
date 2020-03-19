@@ -16,13 +16,17 @@ class Summary extends Component {
     super(props);
     this.state = {
       show: false,
+      type: null,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
   }
 
-  showModal() {
-    this.setState({ show: true });
+  showModal(type) {
+    this.setState({
+      show: true,
+      type,
+    });
   }
 
   hideModal() {
@@ -38,20 +42,20 @@ class Summary extends Component {
   }
 
   render() {
-    const { show } = this.state;
+    const { show, type } = this.state;
     const { summary } = this.props;
     let modal;
 
     if (show) {
-      modal = <Modal show={show} handleClose={this.hideModal} />;
+      modal = <Modal show={show} type={type} handleClose={this.hideModal} />;
     }
 
     return (
       <div>
         <div className="header">
           <span>Abode</span>
-          <IconButton icon={heartIcon} text="Save" />
-          <IconButton icon={shareIcon} text="Share" />
+          <IconButton icon={heartIcon} text="Save" handleClick={() => this.showModal('signin')} />
+          <IconButton icon={shareIcon} text="Share" handleClick={() => this.showModal('share')} />
           <IconButton icon={moreIcon} text="More" />
         </div>
         <div className="body">
@@ -85,8 +89,8 @@ class Summary extends Component {
           </div>
         </div>
         <div className="footer">
-          <button type="button" onClick={this.showModal}>contact agent</button>
-          <button type="button" onClick={this.showModal}>take a tour</button>
+          <button type="button" onClick={() => this.showModal('contact')}>contact agent</button>
+          <button type="button" onClick={() => this.showModal('tour')}>take a tour</button>
         </div>
         {modal}
       </div>
