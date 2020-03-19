@@ -1,14 +1,31 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import Signin from './Signin';
+import Share from './Share';
+import Contact from './Contact';
+import TourBooking from './TourBooking';
 
-const Modal = ({ handleClose }) => (
-  <div className="modal display-block">
-    <section className="modal modal-main">
-      <p>Modal</p>
-      <p>Data</p>
-      <button type="button" onClick={handleClose}>close</button>
-    </section>
-  </div>
-);
+const Modal = ({ handleClose, type }) => {
+  let body;
+
+  if (type === 'signin') {
+    body = <Signin />;
+  } else if (type === 'share') {
+    body = <Share />;
+  } else if (type === 'contact') {
+    body = <Contact />;
+  } else if (type === 'tour') {
+    body = <TourBooking />;
+  }
+
+  return (
+    <div className="modal display-block">
+      <section className="modal modal-main">
+        {body}
+        <button type="button" onClick={handleClose}>close</button>
+      </section>
+    </div>
+  );
+};
 
 export default Modal;
