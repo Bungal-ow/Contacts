@@ -37,9 +37,9 @@ class Signin extends Component {
             </form>
           </div>
           <div>
-            <button>apple</button>
-            <button>facebook</button>
-            <button>google</button>
+            <button type="button">apple</button>
+            <button type="button">facebook</button>
+            <button type="button">google</button>
           </div>
         </div>
       </div>
