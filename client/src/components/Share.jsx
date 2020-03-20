@@ -7,7 +7,7 @@ class Share extends Component {
     this.state = {
       recipientEmail: '',
       userEmail: '',
-      userMessage: '',
+      userMessage: 'Check out this home I found on Abode.',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,29 +34,30 @@ class Share extends Component {
         <div className="body">
           <div className="form">
             <form onSubmit={this.handleSubmit}>
-              <label>
-                recipient&apos;s email
+              <label htmlFor="recipientEmail">
+                Recipient&apos;s email
                 <input
+                  id="recipientEmail"
                   name="recipientEmail"
                   type="email"
                   defaultValue={recipientEmail}
                   onChange={this.handleChange}
                 />
-                <br></br>
               </label>
-              <label>
-                your email
+              <label htmlFor="userEmail">
+                Your email
                 <input
+                  id="userEmail"
                   name="userEmail"
                   type="email"
                   defaultValue={userEmail}
                   onChange={this.handleChange}
                 />
-                <br></br>
               </label>
-              <label>
-                message (optional)
+              <label htmlFor="userMessage">
+                Include message (optional)
                 <textarea
+                  id="userMessage"
                   name="userMessage"
                   defaultValue={userMessage}
                   onChange={this.handleChange}
