@@ -67,6 +67,9 @@ class Contact extends Component {
                 <Agent agent={agent} />
               </div>
             ))}
+            <p>
+              Learn how to be one of the agents above
+            </p>
           </div>
         </div>
       </div>
