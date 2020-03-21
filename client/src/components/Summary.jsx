@@ -47,7 +47,7 @@ class Summary extends Component {
     let modal;
 
     if (show) {
-      modal = <Modal type={type} handleClose={this.hideModal} address={summary.address} />;
+      modal = <Modal type={type} handleClose={this.hideModal} property={summary} />;
     }
 
     return (

@@ -5,7 +5,7 @@ import Share from './Share';
 import Contact from './Contact';
 import TourBooking from './TourBooking';
 
-const Modal = ({ handleClose, type, address }) => {
+const Modal = ({ handleClose, type, property }) => {
   let body;
 
   if (type === 'signin') {
@@ -13,7 +13,7 @@ const Modal = ({ handleClose, type, address }) => {
   } else if (type === 'share') {
     body = <Share />;
   } else if (type === 'contact') {
-    body = <Contact address={address} />;
+    body = <Contact property={property} />;
   } else if (type === 'tour') {
     body = <TourBooking />;
   }
