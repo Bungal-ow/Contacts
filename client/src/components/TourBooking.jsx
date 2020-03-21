@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-alert */
 import React, { Component } from 'react';

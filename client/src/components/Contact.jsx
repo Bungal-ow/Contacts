@@ -47,9 +47,9 @@ class Contact extends Component {
     const { message } = this.state;
 
     return (
-      <div>
-        <div className="header">
-          contact agent
+      <div className="contact">
+        <div className="contact-header">
+          Contact agent
         </div>
         <div className="contact-body">
           <div className="form">
@@ -63,12 +63,11 @@ class Contact extends Component {
             {/* ADD ON CHANGE */}
             {property.contact.map((agent) => (
               <div>
-                <input type="radio" id={agent.id} />
                 <Agent agent={agent} />
               </div>
             ))}
-            <p>
-              Learn how to be one of the agents above
+            <p className="placeholder">
+              Learn how to appear as the agent above
             </p>
           </div>
         </div>
