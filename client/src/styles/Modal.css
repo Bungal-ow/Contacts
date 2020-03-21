@@ -1,7 +1,56 @@
+.summary {
+  width: 500;
+  font-family: 'Open Sans', sans-serif;
+}
 
+.header {
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header div {
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#logo {
+  font-size: 26px;
+  position: relative;
+  top: 20px;
+  left: 16px;
+}
+
+.footer {
+  width: 500px;
+  display: flex;
+}
+
+.footer button {
+  width: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.specs {
+  font-size: 15px;
+  padding: 0 0 16px 16px;
+  margin-left: 16px 0 0 0;
+  margin-right: 16px;
+}
+
+.price {
+  font-size: 26px;
+  margin-right: 10px;
+}
+
+.format {
+  font-size: 13px;
+}
 
 .modal {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   position: fixed;
   top: 0;
   left: 0;
@@ -13,8 +62,8 @@
 .modal-main {
   position:fixed;
   background: white;
-  width: 80%;
-  height: auto;
+  width: 720px;
+  height: 595px;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
@@ -32,7 +81,21 @@ section {
 section button {
   align-self: flex-end;
   width: 40px;
-  margin: 5px 5px 5px 5px
+  margin: 15px 15px 15px 15px;
+}
+
+.contact-header {
+  text-align: center;
+  font-size: 20px;
+}
+.contact-body {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px 24px 0px 24px;
+}
+
+.contactForm {
+  margin-right: 24px;
 }
 
 form {
@@ -40,38 +103,37 @@ form {
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
+  padding-top: 10px;
   /* justify-content: flex-start; */
 }
 
 form input {
-  font-size: 9px;
-  width: 85%;
-  margin: -5px;
+  font-size: 16px;
+  width: 100%;
+  height: 32px;
+  /* padding: 7px 15px 7px 0px; */
 }
 
 textarea {
-  font-size: 9px;
-  width: 85%;
+  font-size: 16px;
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  /* padding: 7px 15px 7px 15px; */
 }
 
 form p {
   padding-top: 5px;
-  font-size: 7px;
-  width: 85%;
-  padding-left: 8%;
-}
-
-.contact-header {
-  text-align: center;
+  font-size: 10px;
+  width: 100%;
 }
 
 .placeholder {
-  font-size: 8px;
+  font-size: 14px;
 }
 
 .agents {
-  padding-top: 5px;
+  padding-top: 10px;
 }
 
 .agent {
@@ -79,14 +141,14 @@ form p {
   align-items: center;
   /* flex-wrap: wrap; */
   /* flex-direction: row; */
-  font-size: 7px;
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+
+.agent label {
+  margin-left: 60px;
 }
 
 .form {
   width: 50%;
-}
-
-.contact-body {
-  display: flex;
-  flex-wrap: wrap;
 }

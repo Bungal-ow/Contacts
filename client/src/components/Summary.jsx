@@ -51,46 +51,46 @@ class Summary extends Component {
     }
 
     return (
-      <div>
+      <div className="summary">
+        <div id="logo">Abode</div>
         <div className="header">
-          <span>Abode</span>
           <IconButton icon={heartIcon} text="Save" handleClick={() => this.showModal('signin')} />
           <IconButton icon={shareIcon} text="Share" handleClick={() => this.showModal('share')} />
           {/* <IconButton icon={moreIcon} text="More" /> */}
         </div>
         <div className="body">
           <div className="specs">
-            <span>${summary.price}</span>
+            <span className="price">${summary.price}</span>
             <span>{`${summary.numBD}bd`}</span>
             <span> | </span>
             <span>{`${summary.numBA}ba`}</span>
             <span> | </span>
             <span>{`${summary.sqft} sqft.`}</span>
-          </div>
-          <div className="address">
-            {summary.address}
-          </div>
-          <div className="format">
             <div>
-              <span>{summary.format}</span>
-              <span> | </span>
-              <span>
-                {this.hasAbestimate()}
-              </span>
+              {summary.address}
             </div>
-            <div>
-              <span>
-                {`Est. payment ${summary.estPayment}/mo.`}
-              </span>
-              <span>
-                Get pre-qualified
-              </span>
+            <div className="format">
+              <div>
+                <span>{summary.format}</span>
+                <span> | </span>
+                <span>
+                  {this.hasAbestimate()}
+                </span>
+              </div>
+              <div>
+                <span>
+                  {`Est. payment ${summary.estPayment}/mo.`}
+                </span>
+                <span>
+                  Get pre-qualified
+                </span>
+              </div>
             </div>
           </div>
         </div>
         <div className="footer">
-          <button type="button" onClick={() => this.showModal('contact')}>contact agent</button>
-          <button type="button" onClick={() => this.showModal('tour')}>take a tour</button>
+          <button type="button" onClick={() => this.showModal('contact')}>Contact agent</button>
+          <button type="button" onClick={() => this.showModal('tour')}>Take a tour</button>
         </div>
         {modal}
       </div>
