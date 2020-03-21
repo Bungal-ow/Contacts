@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-alert */
 import React, { Component } from 'react';
 import ContactForm from './ContactForm';
+import Agent from './Agent';
 
 class Contact extends Component {
   constructor(props) {
@@ -18,8 +20,8 @@ class Contact extends Component {
   }
 
   componentDidMount() {
-    const { address } = this.props;
-    this.setState({ message: `I am interested in ${address}.` });
+    const { property } = this.props;
+    this.setState({ message: `I am interested in ${property.address}.` });
   }
 
   handleSubmit(event) {
@@ -39,6 +41,7 @@ class Contact extends Component {
   }
 
   render() {
+    const { property } = this.props;
     const { message } = this.state;
 
     return (
@@ -55,7 +58,12 @@ class Contact extends Component {
             />
           </div>
           <div className="agents">
-            agents here
+            {property.contact.map((agent) => (
+              <div>
+                <span><input type="radio" id={agent.id} /></span>
+                <span><Agent agent={agent} /></span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

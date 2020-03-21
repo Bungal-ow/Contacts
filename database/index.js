@@ -19,6 +19,7 @@ const agentSchema = mongoose.Schema({
   rating: Number,
   numSales: Number,
   phoneNum: String,
+  email: String,
 });
 
 const Property = mongoose.model('Property', propertySchema);
