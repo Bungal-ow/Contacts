@@ -51,7 +51,7 @@ class Contact extends Component {
         <div className="header">
           contact agent
         </div>
-        <div className="body">
+        <div className="contact-body">
           <div className="form">
             <ContactForm
               handleSubmit={this.handleSubmit}
