@@ -14,16 +14,19 @@ class Agent extends Component {
     const { agent } = this.props;
 
     return (
-      <span>
-        {agent.title}
-        <br></br>
-        {agent.name}
-        <br></br>
-        {`${agent.rating}/5`}
-        <br></br>
-        {`${agent.numSales} recent reviews`}
-        <br></br>
-        {agent.phoneNum}
+      <span className="agent">
+        <input type="radio" id={agent.id} />
+        <label htmlFor={agent.id}>
+          {agent.title}
+          <br></br>
+          {agent.name}
+          <br></br>
+          {`${agent.rating}/5`}
+          <br></br>
+          {`${agent.numSales} recent reviews`}
+          <br></br>
+          {agent.phoneNum}
+        </label>
       </span>
     );
   }

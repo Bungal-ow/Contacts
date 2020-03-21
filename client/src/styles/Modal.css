@@ -1,4 +1,7 @@
+
+
 .modal {
+  font-family: sans-serif;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,8 +24,62 @@
   display: block;
 }
 
-.legal {
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+section button {
+  align-self: flex-end;
+  width: 40px;
+  margin: 5px 5px 5px 5px
+}
+
+form {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  /* justify-content: flex-start; */
+}
+
+form input {
   font-size: 9px;
+  width: 85%;
+  margin: -5px;
+}
+
+textarea {
+  font-size: 9px;
+  width: 85%;
+}
+
+form p {
+  padding-top: 5px;
+  font-size: 7px;
+  width: 85%;
+  padding-left: 8%;
+}
+
+.contact-header {
+  text-align: center;
+}
+
+.placeholder {
+  font-size: 8px;
+}
+
+.agents {
+  padding-top: 5px;
+}
+
+.agent {
+  display: flex;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  /* flex-direction: row; */
+  font-size: 7px;
 }
 
 .form {
