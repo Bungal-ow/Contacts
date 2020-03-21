@@ -13,6 +13,7 @@ class Contact extends Component {
       phone: '',
       email: '',
       message: '',
+      selectedAgent: null,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,9 +31,10 @@ class Contact extends Component {
       phone,
       email,
       message,
+      selectedAgent,
     } = this.state;
 
-    alert(`Submitted ${name}, ${phone}, ${email}, ${message}`);
+    alert(`Submitted ${name}, ${phone}, ${email}, ${message}, ${selectedAgent}`);
     event.preventDefault();
   }
 
@@ -58,10 +60,11 @@ class Contact extends Component {
             />
           </div>
           <div className="agents">
+            {/* ADD ON CHANGE */}
             {property.contact.map((agent) => (
               <div>
-                <span><input type="radio" id={agent.id} /></span>
-                <span><Agent agent={agent} /></span>
+                <input type="radio" id={agent.id} />
+                <Agent agent={agent} />
               </div>
             ))}
           </div>
