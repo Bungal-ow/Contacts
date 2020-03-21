@@ -52,45 +52,47 @@ class Summary extends Component {
 
     return (
       <div className="summary">
-        <div id="logo">Abode</div>
-        <div className="header">
-          <IconButton icon={heartIcon} text="Save" handleClick={() => this.showModal('signin')} />
-          <IconButton icon={shareIcon} text="Share" handleClick={() => this.showModal('share')} />
-          {/* <IconButton icon={moreIcon} text="More" /> */}
-        </div>
-        <div className="body">
-          <div className="specs">
-            <span className="price">${summary.price}</span>
-            <span>{`${summary.numBD}bd`}</span>
-            <span> | </span>
-            <span>{`${summary.numBA}ba`}</span>
-            <span> | </span>
-            <span>{`${summary.sqft} sqft.`}</span>
-            <div>
-              {summary.address}
-            </div>
-            <div className="format">
+        <div className="main">
+          <div id="logo">Abode</div>
+          <div className="header">
+            <IconButton icon={heartIcon} text="Save" handleClick={() => this.showModal('signin')} />
+            <IconButton icon={shareIcon} text="Share" handleClick={() => this.showModal('share')} />
+            {/* <IconButton icon={moreIcon} text="More" /> */}
+          </div>
+          <div className="body">
+            <div className="specs">
+              <span className="price">${summary.price}</span>
+              <span>{`${summary.numBD}bd`}</span>
+              <span> | </span>
+              <span>{`${summary.numBA}ba`}</span>
+              <span> | </span>
+              <span>{`${summary.sqft} sqft.`}</span>
               <div>
-                <span>{summary.format}</span>
-                <span> | </span>
-                <span>
-                  {this.hasAbestimate()}
-                </span>
+                {summary.address}
               </div>
-              <div>
-                <span>
-                  {`Est. payment ${summary.estPayment}/mo.`}
-                </span>
-                <span>
-                  Get pre-qualified
-                </span>
+              <div className="format">
+                <div>
+                  <span>{summary.format}</span>
+                  <span> | </span>
+                  <span>
+                    {this.hasAbestimate()}
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    {`Est. payment ${summary.estPayment}/mo.  `}
+                  </span>
+                  <span>
+                    Get pre-qualified
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="footer">
-          <button type="button" onClick={() => this.showModal('contact')}>Contact agent</button>
-          <button type="button" onClick={() => this.showModal('tour')}>Take a tour</button>
+          <div className="footer">
+            <button type="button" onClick={() => this.showModal('contact')}>Contact agent</button>
+            <button type="button" onClick={() => this.showModal('tour')}>Take a tour</button>
+          </div>
         </div>
         {modal}
       </div>
