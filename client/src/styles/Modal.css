@@ -20,3 +20,16 @@
 .display-block {
   display: block;
 }
+
+.legal {
+  font-size: 9px;
+}
+
+.form {
+  width: 50%;
+}
+
+.body {
+  display: flex;
+  flex-wrap: wrap;
+}

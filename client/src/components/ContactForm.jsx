@@ -2,6 +2,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
+const legalBlock = (
+  `By pressing Contact Agent, you agree that Zillow Group and real estate professionals
+  may call/text you about your inquiry, which may involve use of automated means
+  and prerecorded/artificial voices. You don't need to consent as a condition of
+  buying any property, goods or services. Message/data rates may apply. You also
+  agree to our Terms of Use. Zillow does not endorse any real estate professionals.`
+);
+
 const ContactForm = ({ handleSubmit, handleChange, defaultMessage }) => (
   <div className="contactForm">
     <form onSubmit={handleSubmit}>
@@ -37,6 +45,11 @@ const ContactForm = ({ handleSubmit, handleChange, defaultMessage }) => (
       />
       <br></br>
       <input type="submit" name="Contact agent" />
+      <div>
+        <p className="legal">
+          {legalBlock}
+        </p>
+      </div>
       <br></br>
     </form>
   </div>
