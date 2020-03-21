@@ -5,8 +5,8 @@ import React from 'react';
 
 const IconButton = ({ icon, text, handleClick }) => (
   <div onClick={handleClick}>
-    <img src={icon} alt="" height="12" />
-    {text}
+    <img src={icon} alt="" height="15" />
+    {`  ${text}`}
   </div>
 );
 
