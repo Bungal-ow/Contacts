@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable no-alert */
 import React, { Component } from 'react';
 
@@ -44,6 +45,7 @@ class Share extends Component {
                   onChange={this.handleChange}
                 />
               </label>
+              <br></br>
               <label htmlFor="userEmail">
                 Your email
                 <input
@@ -54,8 +56,10 @@ class Share extends Component {
                   onChange={this.handleChange}
                 />
               </label>
+              <br></br>
               <label htmlFor="userMessage">
                 Include message (optional)
+                <br></br>
                 <textarea
                   id="userMessage"
                   name="userMessage"
@@ -63,6 +67,7 @@ class Share extends Component {
                   onChange={this.handleChange}
                 />
               </label>
+              <br></br>
               <input type="submit" value="Submit" />
             </form>
           </div>
