@@ -32,14 +32,14 @@ class Signin extends Component {
           <div className="signin-form">
             <form onSubmit={this.handleSubmit}>
               <input type="email" defaultValue={value} onChange={this.handleChange} />
-              <input className="submitButton" type="submit" value="Submit" />
+              <input id="submitButton" type="submit" value="Submit" />
               <p className="signin-legal">By submitting, I accept...</p>
             </form>
           </div>
           <div>
-            <button type="button">Connect with Apple</button>
-            <button type="button">Connect with Facebook</button>
-            <button type="button">Connect with Google</button>
+            <button id="button-apple" type="button">Connect with Apple</button>
+            <button id="button-facebook" type="button">Connect with Facebook</button>
+            <button id="button-google" type="button">Connect with Google</button>
           </div>
         </div>
       </div>
