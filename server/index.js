@@ -13,7 +13,7 @@ app.listen(port, () => {
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/seedProperties', (req, res) => {
+app.get('/properties', (req, res) => {
   find({}, (data) => {
     res.send(data);
   });

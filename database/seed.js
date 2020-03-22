@@ -25,9 +25,7 @@ const seedAgents = (quantity, title) => {
   return agents;
 };
 
-const numberWithCommas = (num) => {
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-};
+const numberWithCommas = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const seedProperties = (quantity) => {
   const properties = [];
@@ -40,6 +38,7 @@ const seedProperties = (quantity) => {
   // const premierAgent = seedAgents(3, 'Premier Agent');
 
   for (let i = 0; i < quantity; i += 1) {
+    const randomPrice = generateRandomNum(500000, 4000000);
     properties.push(new Property({
       address: `${faker.address.streetAddress()}, 
         ${faker.address.city()}, 
@@ -47,7 +46,8 @@ const seedProperties = (quantity) => {
       numBd: generateRandomNum(1, 5),
       numBa: generateRandomNum(1, 5),
       sqft: numberWithCommas(generateRandomNum(10, 30) * 100),
-      marketValEst: numberWithCommas(generateRandomNum(500000, 4000000)),
+      marketValEst: numberWithCommas(randomPrice),
+      monthlyPayment: numberWithCommas(Math.floor(randomPrice / 360)),
       contact: seedAgents(1, 'Seller\'s Agent').concat(seedAgents(3, 'Premier Agent')),
     }));
   }
