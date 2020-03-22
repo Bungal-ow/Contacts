@@ -119,7 +119,7 @@ section button {
 
 .signin-header {
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
+  /* font-family: 'Times New Roman', Times, serif; */
   font-size: 24px;
   font-weight: 600;
 }
@@ -141,21 +141,22 @@ section button {
 }
 
 .signin-form input {
+  width: 380px;
+  padding-left: 15px;
   margin-bottom: 10px;
 }
 
-.submitButton {
-  width: 100%;
+#submitButton {
+  font-weight: 500;
+  width: 400px;
   height: 40px;
   border-radius: 5px;
   background-color: #0055cc;
   color: white;
   font-size: 13px;
-  margin-left: 5px;
-  margin-right: 5px;
 }
 
-.submitButton:hover {
+#submitButton:hover {
   background-color: white;
   color: #0055cc;
 }
@@ -165,6 +166,34 @@ section button {
   padding-top: 5px;
   font-size: 10px;
   width: 100%;
+}
+
+#button-apple {
+  font-weight: 500;
+  background-color: black;
+  color: white;
+}
+
+#button-apple:hover {
+  background-color: gray;
+}
+
+#button-facebook {
+  font-weight: 500;
+  background-color: #0055cc;
+  color: white;
+}
+
+#button-facebook:hover {
+  background-color: #3283f5;
+}
+
+#button-google  {
+  font-weight: 500;
+}
+
+#button-google:hover {
+  border-color: lightgray;
 }
 
 .share {
@@ -200,10 +229,12 @@ section button {
 
 #recipientEmail {
   width: 364px;
+  padding-left: 0px;
 }
 
 #userEmail {
   width: 363px;
+  padding-left: 0px;
 }
 
 #anomoly {
@@ -211,7 +242,7 @@ section button {
 }
 
 #userMessage {
-  width: 360px;
+  width: 342px;
   border-style: solid;
   border-width: 1px;
   border-color: lightgray;
@@ -239,6 +270,7 @@ section button {
 }
 
 form {
+  color: gray;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -248,29 +280,31 @@ form {
 }
 
 form input {
+  color: gray;
   border-style: solid;
   border-width: 1px;
   border-color: lightgray;
   border-radius: 3px;
   font-size: 16px;
   font-weight: lighter;
-  width: 100%;
+  width: 92%;
   height: 32px;
-  /* padding-left: 15px; */
+  padding-left: 15px;
   /* padding: 7px 15px 7px 0px; */
 }
 
 textarea {
+  color: gray;
   border-style: solid;
   border-width: 1px;
   border-color: lightgray;
   border-radius: 2px;
   font-size: 16px;
   font-weight: lighter;
-  width: 100%;
+  width: 92%;
   padding-top: 7px;
   padding-bottom: 7px;
-  /* padding-left: 15px; */
+  padding-left: 15px;
   /* padding: 7px 15px 7px 15px; */
 }
 
@@ -278,6 +312,21 @@ form p {
   padding-top: 5px;
   font-size: 10px;
   width: 100%;
+}
+
+#contact-form-submit {
+  font-weight: 500;
+  width: 98%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #0055cc;
+  color: white;
+  font-size: 13px;
+}
+
+#contact-form-submit:hover {
+  background-color: white;
+  color: #0055cc;
 }
 
 .placeholder {
@@ -320,5 +369,5 @@ form p {
 }
 
 #avatar {
-   clip-path: circle(68% at 30px -18px);
+   clip-path: circle(67% at 30px -18px);
 }
