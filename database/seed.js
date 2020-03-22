@@ -40,9 +40,7 @@ const seedProperties = (quantity) => {
   for (let i = 0; i < quantity; i += 1) {
     const randomPrice = generateRandomNum(500000, 4000000);
     properties.push(new Property({
-      address: `${faker.address.streetAddress()}, 
-        ${faker.address.city()}, 
-        ${faker.address.zipCode()}`,
+      address: `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.zipCode()}`,
       numBd: generateRandomNum(1, 5),
       numBa: generateRandomNum(1, 5),
       sqft: numberWithCommas(generateRandomNum(10, 30) * 100),

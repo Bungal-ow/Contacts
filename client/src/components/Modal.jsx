@@ -24,7 +24,7 @@ const Modal = ({ handleClose, type, property }) => {
   return (
     <div className="modal display-block">
       <section className={`modal modal-main ${modalModifier}`}>
-        <button type="button" onClick={handleClose}>close</button>
+        <button id="close" type="button" onClick={handleClose}>close</button>
         {body}
       </section>
     </div>

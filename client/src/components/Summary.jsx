@@ -41,14 +41,6 @@ class Summary extends Component {
     this.setState({ show: false });
   }
 
-  hasAbestimate() {
-    const { summary } = this.state;
-    if (summary.hasAbestimate) {
-      return 'Abestimate';
-    }
-    return '';
-  }
-
   render() {
     const { show, type, summary } = this.state;
     let modal;
@@ -81,8 +73,8 @@ class Summary extends Component {
                 <div>
                   <span>For sale</span>
                   <span> | </span>
-                  <span>
-                    {this.hasAbestimate()}
+                  <span id="abestimate">
+                    Abestimate
                   </span>
                 </div>
                 <div>
