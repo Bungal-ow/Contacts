@@ -7,11 +7,14 @@ import TourBooking from './TourBooking';
 
 const Modal = ({ handleClose, type, property }) => {
   let body;
+  let modalModifier;
 
   if (type === 'signin') {
     body = <Signin />;
+    modalModifier = 'signin';
   } else if (type === 'share') {
     body = <Share />;
+    modalModifier = 'share';
   } else if (type === 'contact') {
     body = <Contact property={property} />;
   } else if (type === 'tour') {
@@ -20,7 +23,7 @@ const Modal = ({ handleClose, type, property }) => {
 
   return (
     <div className="modal display-block">
-      <section className="modal modal-main">
+      <section className={`modal modal-main ${modalModifier}`}>
         <button type="button" onClick={handleClose}>close</button>
         {body}
       </section>

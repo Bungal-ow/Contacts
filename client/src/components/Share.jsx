@@ -29,12 +29,12 @@ class Share extends Component {
     const { recipientEmail, userEmail, userMessage } = this.state;
     return (
       <div>
-        <div className="header">
+        <div className="share-header">
           Email this home
         </div>
-        <div className="body">
-          <div className="form">
-            <form onSubmit={this.handleSubmit}>
+        <div className="share-body">
+          <div className="share-forms">
+            <form className="share-form" onSubmit={this.handleSubmit}>
               <label htmlFor="recipientEmail">
                 Recipient&apos;s email
                 <input
@@ -57,7 +57,8 @@ class Share extends Component {
                 />
               </label>
               <br></br>
-              <label htmlFor="userMessage">
+              {/* LABEL SHOULD NOT BE PARENT */}
+              <label id="anomoly" htmlFor="userMessage">
                 Include message (optional)
                 <br></br>
                 <textarea
@@ -68,7 +69,7 @@ class Share extends Component {
                 />
               </label>
               <br></br>
-              <input type="submit" value="Submit" />
+              <input className="share-submit" type="submit" value="Send email" />
             </form>
           </div>
         </div>

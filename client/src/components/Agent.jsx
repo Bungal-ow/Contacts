@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import img from '../assets/placeholder.jpg';
 
 class Agent extends Component {
   constructor(props) {
@@ -17,15 +19,14 @@ class Agent extends Component {
       <span className="agent">
         <input type="radio" id={agent.id} />
         <label htmlFor={agent.id}>
-          {agent.title}
-          <br></br>
-          {agent.name}
-          <br></br>
-          {`${agent.rating}/5`}
-          <br></br>
-          {`${agent.numSales} recent reviews`}
-          <br></br>
-          {agent.phoneNum}
+          <span id="avatar"><img src={img} alt="avatar"></img></span>
+        </label>
+        <label htmlFor={agent.id}>
+          <div className="agent-title">{agent.title}</div>
+          <div className="agent-name">{agent.name}</div>
+          <div>{`${agent.rating}/5`}</div>
+          <div>{`${agent.numSales} Recent sales`}</div>
+          <div>{agent.phoneNum}</div>
         </label>
       </span>
     );

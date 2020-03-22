@@ -4,10 +4,10 @@
 import React from 'react';
 
 const IconButton = ({ icon, text, handleClick }) => (
-  <div onClick={handleClick}>
+  <button type="button" onClick={handleClick}>
     <img src={icon} alt="" height="15" />
     {`  ${text}`}
-  </div>
+  </button>
 );
 
 export default IconButton;

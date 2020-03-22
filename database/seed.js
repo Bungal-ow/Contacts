@@ -18,7 +18,7 @@ const seedAgents = (quantity, title) => {
       title,
       rating: generateRandomNum(3, 5),
       numSales: generateRandomNum(0, 30),
-      phoneNum: faker.phone.phoneNumber(),
+      phoneNum: faker.phone.phoneNumberFormat(0),
       email: faker.internet.email(),
     }));
   }
