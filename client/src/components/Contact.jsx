@@ -48,10 +48,10 @@ class Contact extends Component {
 
     return (
       <div className="contact">
-        <div className="contact-header">
+        <div className="modal-header">
           Contact agent
         </div>
-        <div className="contact-body">
+        <div className="modal-body">
           <div className="form">
             <ContactForm
               handleSubmit={this.handleSubmit}

@@ -5,7 +5,7 @@ class Signin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: '  Enter email',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,22 +24,22 @@ class Signin extends Component {
   render() {
     const { value } = this.state;
     return (
-      <div>
-        <div className="header">
+      <div className="signin">
+        <div className="signin-header">
           Sign in or register to save this home
         </div>
-        <div className="body">
-          <div className="form">
+        <div className="signin-body">
+          <div className="signin-form">
             <form onSubmit={this.handleSubmit}>
-              <input type="email" value={value} onChange={this.handleChange} />
-              <input type="submit" value="Submit" />
-              <p>By submitting, I accept...</p>
+              <input type="email" defaultValue={value} onChange={this.handleChange} />
+              <input className="submitButton" type="submit" value="Submit" />
+              <p className="signin-legal">By submitting, I accept...</p>
             </form>
           </div>
           <div>
-            <button type="button">apple</button>
-            <button type="button">facebook</button>
-            <button type="button">google</button>
+            <button type="button">Connect with Apple</button>
+            <button type="button">Connect with Facebook</button>
+            <button type="button">Connect with Google</button>
           </div>
         </div>
       </div>
