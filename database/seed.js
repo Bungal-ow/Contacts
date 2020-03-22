@@ -25,6 +25,10 @@ const seedAgents = (quantity, title) => {
   return agents;
 };
 
+const numberWithCommas = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
 const seedProperties = (quantity) => {
   const properties = [];
 
@@ -42,9 +46,8 @@ const seedProperties = (quantity) => {
         ${faker.address.zipCode()}`,
       numBd: generateRandomNum(1, 5),
       numBa: generateRandomNum(1, 5),
-      sqft: generateRandomNum(10, 30) * 100,
-      availableOn: faker.date.between(now, oneMonth),
-      marketValEst: generateRandomNum(500000, 4000000),
+      sqft: numberWithCommas(generateRandomNum(10, 30) * 100),
+      marketValEst: numberWithCommas(generateRandomNum(500000, 4000000)),
       contact: seedAgents(1, 'Seller\'s Agent').concat(seedAgents(3, 'Premier Agent')),
     }));
   }
