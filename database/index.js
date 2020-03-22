@@ -9,6 +9,7 @@ const propertySchema = mongoose.Schema({
   numBa: Number,
   sqft: String,
   marketValEst: String,
+  monthlyPayment: String,
   contact: [],
 });
 

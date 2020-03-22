@@ -4,6 +4,7 @@
 /* eslint-disable react/button-has-type */
 // import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import $ from 'jquery';
 import IconButton from './IconButton';
 import Modal from './Modal';
 import shareIcon from '../assets/arrow.svg';
@@ -15,11 +16,18 @@ class Summary extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      summary: {},
       show: false,
       type: null,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+  }
+
+  componentDidMount() {
+    $.get('/properties', (data) => {
+      this.setState({ summary: data[Math.floor(Math.random() * data.length)] });
+    });
   }
 
   showModal(type) {
@@ -34,7 +42,7 @@ class Summary extends Component {
   }
 
   hasAbestimate() {
-    const { summary } = this.props;
+    const { summary } = this.state;
     if (summary.hasAbestimate) {
       return 'Abestimate';
     }
@@ -42,8 +50,7 @@ class Summary extends Component {
   }
 
   render() {
-    const { show, type } = this.state;
-    const { summary } = this.props;
+    const { show, type, summary } = this.state;
     let modal;
 
     if (show) {
@@ -61,10 +68,10 @@ class Summary extends Component {
           </div>
           <div className="body">
             <div className="specs">
-              <span className="price">${summary.price}</span>
-              <span>{`${summary.numBD}bd`}</span>
+              <span className="price">${summary.marketValEst}</span>
+              <span>{`${summary.numBd}bd`}</span>
               <span> | </span>
-              <span>{`${summary.numBA}ba`}</span>
+              <span>{`${summary.numBa}ba`}</span>
               <span> | </span>
               <span>{`${summary.sqft} sqft.`}</span>
               <div>
@@ -72,7 +79,7 @@ class Summary extends Component {
               </div>
               <div className="format">
                 <div>
-                  <span>{summary.format}</span>
+                  <span>For sale</span>
                   <span> | </span>
                   <span>
                     {this.hasAbestimate()}
@@ -80,7 +87,7 @@ class Summary extends Component {
                 </div>
                 <div>
                   <span>
-                    {`Est. payment ${summary.estPayment}/mo.  `}
+                    {`Est. payment ${summary.monthlyPayment}/mo.  `}
                   </span>
                   <span>
                     Get pre-qualified
