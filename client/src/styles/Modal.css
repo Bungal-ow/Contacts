@@ -26,6 +26,7 @@
 
 .header button:hover {
   border-color: #0055cc;
+  cursor: pointer;
 }
 
 #logo {
@@ -56,6 +57,7 @@
 }
 
 .footer button:hover {
+  cursor: pointer;
   background-color: white;
   color: #0055cc;
 }
@@ -157,6 +159,7 @@ section button {
 }
 
 #submitButton:hover {
+  cursor: pointer;
   background-color: white;
   color: #0055cc;
 }
@@ -175,6 +178,7 @@ section button {
 }
 
 #button-apple:hover {
+  cursor: pointer;
   background-color: gray;
 }
 
@@ -185,6 +189,7 @@ section button {
 }
 
 #button-facebook:hover {
+  cursor: pointer;
   background-color: #3283f5;
 }
 
@@ -193,6 +198,7 @@ section button {
 }
 
 #button-google:hover {
+  cursor: pointer;
   border-color: lightgray;
 }
 
@@ -223,6 +229,7 @@ section button {
 }
 
 .share-submit:hover {
+  cursor: pointer;
   background-color: white;
   color: #0055cc;
 }
@@ -325,6 +332,7 @@ form p {
 }
 
 #contact-form-submit:hover {
+  cursor: pointer;
   background-color: white;
   color: #0055cc;
 }
@@ -361,6 +369,7 @@ form p {
 }
 
 .agent-name:hover {
+  cursor: pointer;
   text-decoration: underline;
 }
 
@@ -370,4 +379,19 @@ form p {
 
 #avatar {
    clip-path: circle(67% at 30px -18px);
+}
+
+#abestimate {
+  color: #0055cc;
+}
+
+#abestimate:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#close {
+  padding: 0 0 0 0; 
+  height: 30px;
+  cursor: pointer;
 }
