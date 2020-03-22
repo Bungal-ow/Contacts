@@ -4,6 +4,43 @@
 import React, { Component } from 'react';
 import DateCards from './DateCards';
 
+const getAllDates = () => {
+  const daysOfTheWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+  const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  const numDays = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  const getDays = (monthsArr, numDaysArray) => {
+    const days = [];
+    for (let i = 0; i < monthsArr.length; i += 1) {
+      for (let j = 1; j <= numDaysArray[i]; j += 1) {
+        const day = {
+          date: j,
+          month: monthsArr[i],
+        };
+        days.push(day);
+      }
+    }
+    return days;
+  };
+
+  const addDaysOfTheWeek = (arrayOfDays, daysOfTheWeekArr) => {
+    const arrayWithDaysOfTheWeek = arrayOfDays.slice();
+    let indexOfTheWeek = 2;
+
+    for (let i = 0; i < arrayWithDaysOfTheWeek.length; i += 1) {
+      arrayWithDaysOfTheWeek[i].day = daysOfTheWeekArr[indexOfTheWeek];
+      if (indexOfTheWeek === daysOfTheWeekArr.length - 1) {
+        indexOfTheWeek = 0;
+      } else {
+        indexOfTheWeek += 1;
+      }
+    }
+    return arrayWithDaysOfTheWeek;
+  };
+
+  return addDaysOfTheWeek(getDays(months, numDays), daysOfTheWeek);
+};
+
 class TourBooking extends Component {
   constructor(props) {
     super(props);
