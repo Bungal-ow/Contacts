@@ -43,7 +43,7 @@ class Contact extends Component {
   }
 
   render() {
-    const { property } = this.props;
+    const { property, star } = this.props;
     const { message } = this.state;
 
     return (
@@ -63,7 +63,7 @@ class Contact extends Component {
             {/* ADD ON CHANGE */}
             {property.contact.map((agent) => (
               <div>
-                <Agent agent={agent} />
+                <Agent star={star} agent={agent} />
               </div>
             ))}
             <p className="placeholder">

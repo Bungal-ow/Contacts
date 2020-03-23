@@ -10,6 +10,7 @@ const Modal = ({
   handleClose,
   type,
   property,
+  star,
 }) => {
   let body;
   let modalModifier;
@@ -21,7 +22,7 @@ const Modal = ({
     body = <Share />;
     modalModifier = 'share';
   } else if (type === 'contact') {
-    body = <Contact property={property} />;
+    body = <Contact star={star} property={property} />;
   } else if (type === 'tour') {
     body = <TourBooking />;
   }

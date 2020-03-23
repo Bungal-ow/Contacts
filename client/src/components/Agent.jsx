@@ -13,7 +13,7 @@ class Agent extends Component {
   }
 
   render() {
-    const { agent } = this.props;
+    const { agent, star } = this.props;
 
     return (
       <span className="agent">
@@ -24,7 +24,10 @@ class Agent extends Component {
         <label htmlFor={agent.id}>
           <div className="agent-title">{agent.title}</div>
           <div className="agent-name">{agent.name}</div>
-          <div>{`${agent.rating}/5`}</div>
+          <div>
+            <img src={star} alt="star" height="10" />
+            {`${agent.rating}/5 Rating`}
+          </div>
           <div>{`${agent.numSales} Recent sales`}</div>
           <div>{agent.phoneNum}</div>
         </label>
