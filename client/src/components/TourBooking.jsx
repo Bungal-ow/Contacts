@@ -1,20 +1,44 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-alert */
 import React, { Component } from 'react';
 import DateCards from './DateCards';
 
+const arrayOfDays = () => {
+  const justDate = (day) => day.toString().slice(0, 10);
+  const today = new Date();
+  const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
+  const days = [yesterday, today, tomorrow];
+  const abbrDays = days.map((day) => justDate(day));
+  const abbrDaysArr = abbrDays.map((abbrDay) => abbrDay.split(' '));
+  const abbrDaysObj = abbrDaysArr.map((abbrDate) => {
+    return {
+      day: abbrDate[0],
+      month: abbrDate[1],
+      date: abbrDate[2],
+    };
+  });
+  return abbrDaysObj;
+};
+
 class TourBooking extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      days: [],
       date: null,
-      timeslot: null,
+      timeslot: '0930',
     };
 
     this.handleSelect = this.handleSelect.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ days: arrayOfDays() });
   }
 
   handleSelect(event) {

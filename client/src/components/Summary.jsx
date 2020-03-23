@@ -10,6 +10,8 @@ import Modal from './Modal';
 import shareIcon from '../assets/arrow.svg';
 import heartIcon from '../assets/heart.svg';
 import exitIcon from '../assets/exit.svg';
+import circle from '../assets/circle.svg';
+import star from '../assets/star.svg';
 // import moreIcon from '../assets/more.svg';
 import '../styles/Modal.css';
 
@@ -47,7 +49,15 @@ class Summary extends Component {
     let modal;
 
     if (show) {
-      modal = <Modal icon={exitIcon} type={type} handleClose={this.hideModal} property={summary} />;
+      modal = (
+        <Modal
+          icon={exitIcon}
+          star={star}
+          type={type}
+          handleClose={this.hideModal}
+          property={summary}
+        />
+      );
     }
 
     return (
@@ -72,6 +82,7 @@ class Summary extends Component {
               </div>
               <div className="format">
                 <div>
+                  <img src={circle} alt="forSaleCirc" height="12" />
                   <span>For sale</span>
                   <span> | </span>
                   <span id="abestimate">
