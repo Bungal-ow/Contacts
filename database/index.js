@@ -7,9 +7,9 @@ const propertySchema = mongoose.Schema({
   address: String,
   numBd: Number,
   numBa: Number,
-  sqft: Number,
-  availableOn: Date,
-  marketValEst: Number,
+  sqft: String,
+  marketValEst: String,
+  monthlyPayment: String,
   contact: [],
 });
 
@@ -19,6 +19,7 @@ const agentSchema = mongoose.Schema({
   rating: Number,
   numSales: Number,
   phoneNum: String,
+  email: String,
 });
 
 const Property = mongoose.model('Property', propertySchema);

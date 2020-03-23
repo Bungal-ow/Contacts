@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-console */
 const express = require('express');
 const path = require('path');
@@ -12,7 +13,7 @@ app.listen(port, () => {
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/seedProperties', (req, res) => {
+app.get('/properties', (req, res) => {
   find({}, (data) => {
     res.send(data);
   });

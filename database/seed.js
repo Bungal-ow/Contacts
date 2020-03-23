@@ -18,11 +18,14 @@ const seedAgents = (quantity, title) => {
       title,
       rating: generateRandomNum(3, 5),
       numSales: generateRandomNum(0, 30),
-      phoneNum: faker.phone.phoneNumber(),
+      phoneNum: faker.phone.phoneNumberFormat(0),
+      email: faker.internet.email(),
     }));
   }
   return agents;
 };
+
+const numberWithCommas = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const seedProperties = (quantity) => {
   const properties = [];
@@ -31,20 +34,19 @@ const seedProperties = (quantity) => {
   const oneMonth = new Date();
   oneMonth.setMonth(now.getMonth() + 1);
 
-  const sellersAgent = seedAgents(1, 'Seller\'s Agent');
-  const premierAgent = seedAgents(3, 'Premier Agent');
+  // const sellersAgent = seedAgents(1, 'Seller\'s Agent');
+  // const premierAgent = seedAgents(3, 'Premier Agent');
 
   for (let i = 0; i < quantity; i += 1) {
+    const randomPrice = generateRandomNum(5000, 40000) * 100;
     properties.push(new Property({
-      address: `${faker.address.streetAddress()}, 
-        ${faker.address.city()}, 
-        ${faker.address.zipCode()}`,
+      address: `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.zipCode()}`,
       numBd: generateRandomNum(1, 5),
       numBa: generateRandomNum(1, 5),
-      sqft: generateRandomNum(10, 30) * 100,
-      availableOn: faker.date.between(now, oneMonth),
-      marketValEst: generateRandomNum(500000, 4000000),
-      contact: sellersAgent.concat(premierAgent),
+      sqft: numberWithCommas(generateRandomNum(10, 30) * 100),
+      marketValEst: numberWithCommas(randomPrice),
+      monthlyPayment: numberWithCommas(Math.floor(randomPrice / 360)),
+      contact: seedAgents(1, 'Seller\'s Agent').concat(seedAgents(3, 'Premier Agent')),
     }));
   }
   return properties;
