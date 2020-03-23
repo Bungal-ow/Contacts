@@ -38,7 +38,7 @@ const seedProperties = (quantity) => {
   // const premierAgent = seedAgents(3, 'Premier Agent');
 
   for (let i = 0; i < quantity; i += 1) {
-    const randomPrice = generateRandomNum(500000, 4000000);
+    const randomPrice = generateRandomNum(5000, 40000) * 100;
     properties.push(new Property({
       address: `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.zipCode()}`,
       numBd: generateRandomNum(1, 5),
