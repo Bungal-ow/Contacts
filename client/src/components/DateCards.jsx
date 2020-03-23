@@ -2,11 +2,12 @@
 import React from 'react';
 import DateCard from './DateCard';
 
-const DateCards = ({ handleSelect }) => (
+const DateCards = ({ handleSelect, days }) => (
   <span>
+    {days.map((day) => <DateCard day={day} handleSelect={handleSelect} />)}
+    {/* <DateCard handleSelect={handleSelect} />
     <DateCard handleSelect={handleSelect} />
-    <DateCard handleSelect={handleSelect} />
-    <DateCard handleSelect={handleSelect} />
+    <DateCard handleSelect={handleSelect} /> */}
   </span>
 );
 

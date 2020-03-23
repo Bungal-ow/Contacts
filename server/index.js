@@ -20,12 +20,28 @@ app.get('/properties', (req, res) => {
 });
 
 app.get('/date', (req, res) => {
-  const arrayOfDays = () => {
+  const arrayOfDays = (delta) => {
     const justDate = (day) => day.toString().slice(0, 10);
     const today = new Date();
     const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
     const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
-    const days = [yesterday, today, tomorrow];
+    let days = [yesterday, today, tomorrow];
+
+    const forward = days.map((day) => {
+      return new Date(day.setDate(day.getDate() + 1));
+    });
+    const backward = days.map((day) => {
+      return new Date(day.setDate(day.getDate() - 2));
+    });
+
+    if (delta === 1) {
+      days = forward;
+    }
+
+    if (delta === -1) {
+      days = backward;
+    }
+
     const abbrDays = days.map((day) => justDate(day));
     const abbrDaysArr = abbrDays.map((abbrDay) => abbrDay.split(' '));
     const abbrDaysObj = abbrDaysArr.map((abbrDate) => {
@@ -37,5 +53,5 @@ app.get('/date', (req, res) => {
     });
     return abbrDaysObj;
   };
-  res.send(arrayOfDays());
+  res.send(arrayOfDays(-1));
 });

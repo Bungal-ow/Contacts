@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/self-closing-comp */
@@ -5,12 +6,35 @@
 import React, { Component } from 'react';
 import DateCards from './DateCards';
 
-const arrayOfDays = () => {
+const daysController = (days, delta) => {
+  let alteredDays;
+
+  if (!delta) {
+    const today = new Date();
+    const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+    const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
+    alteredDays = [yesterday, today, tomorrow];
+  } else {
+    const forward = days.map((day) => {
+      return new Date(day.setDate(day.getDate() + 1));
+    });
+    const backward = days.map((day) => {
+      return new Date(day.setDate(day.getDate() - 2));
+    });
+    if (delta === 1) {
+      alteredDays = forward;
+    }
+
+    if (delta === -1) {
+      alteredDays = backward;
+    }
+  }
+
+  return alteredDays;
+};
+
+const arrayOfDays = (days) => {
   const justDate = (day) => day.toString().slice(0, 10);
-  const today = new Date();
-  const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-  const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
-  const days = [yesterday, today, tomorrow];
   const abbrDays = days.map((day) => justDate(day));
   const abbrDaysArr = abbrDays.map((abbrDay) => abbrDay.split(' '));
   const abbrDaysObj = abbrDaysArr.map((abbrDate) => {
@@ -27,26 +51,40 @@ class TourBooking extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      daysControl: [],
       days: [],
       date: null,
       timeslot: '0930',
     };
 
+    this.handleNav = this.handleNav.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.setState({ days: arrayOfDays() });
+    this.setState({ 
+      daysControl: daysController(),
+      days: arrayOfDays(daysController()),
+    });
   }
 
-  handleSelect(event) {
-    this.setState({ date: event.target.value });
+  handleNav({ target }) {
+    const { daysControl } = this.state;
+    const newDays = daysController(daysControl, parseInt(target.value));
+    this.setState({
+      daysControl: newDays,
+      days: arrayOfDays(newDays),
+    });
   }
 
-  handleChange(event) {
-    this.setState({ timeslot: event.target.value });
+  handleSelect({ target }) {
+    this.setState({ date: target.value });
+  }
+
+  handleChange({ target }) {
+    this.setState({ timeslot: target.value });
   }
 
   handleSubmit(event) {
@@ -56,7 +94,7 @@ class TourBooking extends Component {
   }
 
   render() {
-    const { timeslot } = this.state;
+    const { timeslot, days } = this.state;
 
     return (
       <div>
@@ -64,9 +102,9 @@ class TourBooking extends Component {
           Visit this home
         </div>
         <div className="body">
-          <button type="button" className="nav">←</button>
-          <DateCards handleSelect={this.handleSelect} />
-          <button type="button" className="nav">→</button>
+          <button onClick={this.handleNav} value="-1" type="button" className="nav">←</button>
+          <DateCards days={days} handleSelect={this.handleSelect} />
+          <button onClick={this.handleNav} value="1" type="button" className="nav">→</button>
         </div>
         <div className="timeSelector">
           <form onSubmit={this.handleSubmit}>
