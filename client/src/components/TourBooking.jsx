@@ -58,17 +58,17 @@ class TourBooking extends Component {
 
     return (
       <div>
-        <div className="header">
+        <div className="tour-header">
           Visit this home
         </div>
-        <div className="body">
-          <button onClick={this.handleNav} value="-1" type="button" className="nav">←</button>
-          <DateCards days={days} handleSelect={this.handleSelect} />
-          <button onClick={this.handleNav} value="1" type="button" className="nav">→</button>
+        <div className="tour-body">
+          <button className="nav" onClick={this.handleNav} value="-1" type="button">←</button>
+          <DateCards className="date-cards" days={days} handleSelect={this.handleSelect} />
+          <button className="nav" onClick={this.handleNav} value="1" type="button">→</button>
         </div>
         <div className="timeSelector">
           <form onSubmit={this.handleSubmit}>
-            <select value={timeslot} onChange={this.handleChange}>
+            <select className="tour-select" value={timeslot} onChange={this.handleChange}>
               <option value="0930">9:30 AM</option>
               <option value="1000">10:00 AM</option>
               <option value="1030">10:30 AM</option>
@@ -92,7 +92,7 @@ class TourBooking extends Component {
               <option value="1930">7:30 PM</option>
             </select>
             <br></br>
-            <input type="submit" value="Request this time" />
+            <input className="tour-submit" type="submit" value="Request this time" />
           </form>
         </div>
       </div>

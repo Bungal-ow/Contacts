@@ -12,7 +12,6 @@ import heartIcon from '../assets/heart.svg';
 import exitIcon from '../assets/exit.svg';
 import circle from '../assets/circle.svg';
 import star from '../assets/star.svg';
-// import moreIcon from '../assets/more.svg';
 import '../styles/Modal.css';
 
 class Summary extends Component {
@@ -67,7 +66,6 @@ class Summary extends Component {
           <div className="header">
             <IconButton icon={heartIcon} text="Save" handleClick={() => this.showModal('signin')} />
             <IconButton icon={shareIcon} text="Share" handleClick={() => this.showModal('share')} />
-            {/* <IconButton icon={moreIcon} text="More" /> */}
           </div>
           <div className="body">
             <div className="specs">
