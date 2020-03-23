@@ -9,6 +9,7 @@ import IconButton from './IconButton';
 import Modal from './Modal';
 import shareIcon from '../assets/arrow.svg';
 import heartIcon from '../assets/heart.svg';
+import exitIcon from '../assets/exit.svg';
 // import moreIcon from '../assets/more.svg';
 import '../styles/Modal.css';
 
@@ -46,7 +47,7 @@ class Summary extends Component {
     let modal;
 
     if (show) {
-      modal = <Modal type={type} handleClose={this.hideModal} property={summary} />;
+      modal = <Modal icon={exitIcon} type={type} handleClose={this.hideModal} property={summary} />;
     }
 
     return (

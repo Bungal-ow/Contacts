@@ -5,7 +5,12 @@ import Share from './Share';
 import Contact from './Contact';
 import TourBooking from './TourBooking';
 
-const Modal = ({ handleClose, type, property }) => {
+const Modal = ({
+  icon,
+  handleClose,
+  type,
+  property,
+}) => {
   let body;
   let modalModifier;
 
@@ -24,7 +29,7 @@ const Modal = ({ handleClose, type, property }) => {
   return (
     <div className="modal display-block">
       <section className={`modal modal-main ${modalModifier}`}>
-        <button id="close" type="button" onClick={handleClose}>close</button>
+        <button id="close" type="button" onClick={handleClose}><img src={icon} alt="exit" height="20px" /></button>
         {body}
       </section>
     </div>
