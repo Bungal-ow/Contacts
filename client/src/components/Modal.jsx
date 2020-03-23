@@ -25,6 +25,7 @@ const Modal = ({
     body = <Contact star={star} property={property} />;
   } else if (type === 'tour') {
     body = <TourBooking />;
+    modalModifier = 'tour';
   }
 
   return (
