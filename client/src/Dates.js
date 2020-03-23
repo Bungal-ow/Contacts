@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 class DateCard {
   constructor() {
     this.daysOfTheWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
