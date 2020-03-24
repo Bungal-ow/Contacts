@@ -2,12 +2,12 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.main {
+/* .main {
   position:fixed;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-}
+} */
 
 .header {
   width: 500px;
