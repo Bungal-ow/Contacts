@@ -53,5 +53,5 @@ const summary = {
 
 ReactDOM.render(
   <Summary summary={summary} />,
-  document.getElementById('app'),
+  document.getElementById('Summary'),
 );
