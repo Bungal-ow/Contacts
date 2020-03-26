@@ -24,7 +24,7 @@ use these commands:
 
 That should empty the collection (usually 100 documents will be deleted)
 
-Then you can go back to you node terminal and seed the database again:
+Then you can go back to your node terminal and seed the database again:
 - npm run seed
 
 If successful, the console shoud log that 100 entries(documents) were made.
