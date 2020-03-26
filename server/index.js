@@ -5,7 +5,7 @@ const path = require('path');
 const { find } = require('../database/index.js');
 
 const app = express();
-const port = 5555;
+const port = 5000;
 
 app.listen(port, () => {
   console.log(`Server is running, listening on port ${port}`);
