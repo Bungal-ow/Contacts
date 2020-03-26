@@ -12,7 +12,7 @@ import heartIcon from '../assets/heart.svg';
 import exitIcon from '../assets/exit.svg';
 import circle from '../assets/circle.svg';
 import star from '../assets/star.svg';
-import '../styles/Modal.css';
+import styles from '../styles/summary.css';
 
 class Summary extends Component {
   constructor(props) {
@@ -60,16 +60,16 @@ class Summary extends Component {
     }
 
     return (
-      <div className="summary">
-        <div className="main">
-          <div id="logo">Abode</div>
-          <div className="header">
+      <div className={styles.summary}>
+        <div className={styles.main}>
+          <div id={styles.logo}>Abode</div>
+          <div className={styles.header}>
             <IconButton icon={heartIcon} text="Save" handleClick={() => this.showModal('signin')} />
             <IconButton icon={shareIcon} text="Share" handleClick={() => this.showModal('share')} />
           </div>
-          <div className="body">
-            <div className="specs">
-              <span className="price">${summary.marketValEst}</span>
+          <div className={styles.body}>
+            <div className={styles.specs}>
+              <span className={styles.price}>${summary.marketValEst}</span>
               <span>{`${summary.numBd}bd`}</span>
               <span> | </span>
               <span>{`${summary.numBa}ba`}</span>
@@ -78,7 +78,7 @@ class Summary extends Component {
               <div>
                 {summary.address}
               </div>
-              <div className="format">
+              <div className={styles.format}>
                 <div>
                   <img src={circle} alt="forSaleCirc" height="12" />
                   <span>For sale</span>
@@ -98,7 +98,7 @@ class Summary extends Component {
               </div>
             </div>
           </div>
-          <div className="footer">
+          <div className={styles.footer}>
             <button type="button" onClick={() => this.showModal('contact')}>Contact agent</button>
             <button type="button" onClick={() => this.showModal('tour')}>Take a tour</button>
           </div>

@@ -2,15 +2,15 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.main {
+/* .main {
   position:fixed;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
-}
+} */
 
 .header {
-  width: 500px;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
 }
@@ -32,7 +32,7 @@
 #logo {
   font-weight: bolder;
   color: #0055cc;
-  font-size: 26px;
+  font-size: 30px;
   position: relative;
   width: 80px;
   top: 20px;
@@ -40,9 +40,10 @@
 }
 
 .footer {
-  width: 500px;
+  width: 100%;
   margin: 0 11px 0 11px;
   display: flex;
+  padding-right: 16px;
 }
 
 .footer button {
