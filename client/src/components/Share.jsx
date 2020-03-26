@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-alert */
 import React, { Component } from 'react';
+import styles from '../styles/share.css';
 
 class Share extends Component {
   constructor(props) {
@@ -28,48 +30,52 @@ class Share extends Component {
   render() {
     const { recipientEmail, userEmail, userMessage } = this.state;
     return (
-      <div>
-        <div className="share-header">
+      <div className={styles.main}>
+        <div className={styles.share}>
           Email this home
         </div>
-        <div className="share-body">
-          <div className="share-forms">
-            <form className="share-form" onSubmit={this.handleSubmit}>
-              <label htmlFor="recipientEmail">
-                Recipient&apos;s email
+        <div className={styles.body}>
+          <div className={styles.forms}>
+            <form className={styles.form} onSubmit={this.handleSubmit}>
+              <div>
+                <label htmlFor="recipientEmail">
+                  Recipient&apos;s email
+                </label>
+                <br></br>
                 <input
-                  id="recipientEmail"
+                  className={styles.input}
                   name="recipientEmail"
                   type="email"
                   defaultValue={recipientEmail}
                   onChange={this.handleChange}
                 />
-              </label>
-              <br></br>
-              <label htmlFor="userEmail">
-                Your email
+              </div>
+              <div>
+                <label htmlFor="userEmail">
+                  Your email
+                </label>
+                <br></br>
                 <input
-                  id="userEmail"
+                  className={styles.input}
                   name="userEmail"
                   type="email"
                   defaultValue={userEmail}
                   onChange={this.handleChange}
                 />
-              </label>
-              <br></br>
-              {/* LABEL SHOULD NOT BE PARENT */}
-              <label id="anomoly" htmlFor="userMessage">
-                Include message (optional)
+              </div>
+              <div>
+                <label htmlFor="userMessage">
+                  Include message (optional)
+                </label>
                 <br></br>
                 <textarea
-                  id="userMessage"
+                  className={styles.textarea}
                   name="userMessage"
                   defaultValue={userMessage}
                   onChange={this.handleChange}
                 />
-              </label>
-              <br></br>
-              <input className="share-submit" type="submit" value="Send email" />
+              </div>
+              <input className={styles.submit} type="submit" value="Send email" />
             </form>
           </div>
         </div>

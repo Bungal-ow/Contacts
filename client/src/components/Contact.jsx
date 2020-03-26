@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import ContactForm from './ContactForm';
 import Agent from './Agent';
+import styles from '../styles/contact.css';
 
 class Contact extends Component {
   constructor(props) {
@@ -47,26 +48,23 @@ class Contact extends Component {
     const { message } = this.state;
 
     return (
-      <div className="contact">
-        <div className="modal-header">
+      <div className={styles.contact}>
+        <div className={styles.header}>
           Contact agent
         </div>
-        <div className="modal-body">
-          <div className="form">
-            <ContactForm
-              handleSubmit={this.handleSubmit}
-              handleChange={this.handleChange}
-              defaultMessage={message}
-            />
-          </div>
-          <div className="agents">
-            {/* ADD ON CHANGE */}
+        <div className={styles.body}>
+          <ContactForm
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            defaultMessage={message}
+          />
+          <div className={styles.agents}>
             {property.contact.map((agent) => (
               <div>
                 <Agent star={star} agent={agent} />
               </div>
             ))}
-            <p className="placeholder">
+            <p className={styles.placeholder}>
               Learn how to appear as the agent above
             </p>
           </div>

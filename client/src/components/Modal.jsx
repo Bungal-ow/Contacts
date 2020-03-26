@@ -4,6 +4,7 @@ import Signin from './Signin';
 import Share from './Share';
 import Contact from './Contact';
 import TourBooking from './TourBooking';
+import styles from '../styles/modal.css';
 
 const Modal = ({
   icon,
@@ -17,21 +18,21 @@ const Modal = ({
 
   if (type === 'signin') {
     body = <Signin />;
-    modalModifier = 'signin';
+    modalModifier = styles.signin;
   } else if (type === 'share') {
     body = <Share />;
-    modalModifier = 'share';
+    modalModifier = styles.share;
   } else if (type === 'contact') {
     body = <Contact star={star} property={property} />;
   } else if (type === 'tour') {
     body = <TourBooking />;
-    modalModifier = 'tour';
+    modalModifier = styles.tour;
   }
 
   return (
-    <div className="modal display-block">
-      <section className={`modal modal-main ${modalModifier}`}>
-        <button id="close" type="button" onClick={handleClose}><img src={icon} alt="exit" height="20px" /></button>
+    <div className={`${styles.modal} ${styles.block}`}>
+      <section className={`${styles.modal} ${styles.main} ${modalModifier}`}>
+        <button className={styles.button} id="close" type="button" onClick={handleClose}><img src={icon} alt="exit" height="20px" /></button>
         {body}
       </section>
     </div>

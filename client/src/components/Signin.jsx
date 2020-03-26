@@ -1,5 +1,6 @@
 /* eslint-disable no-alert */
 import React, { Component } from 'react';
+import styles from '../styles/signin.css';
 
 class Signin extends Component {
   constructor(props) {
@@ -24,24 +25,24 @@ class Signin extends Component {
   render() {
     const { value } = this.state;
     return (
-      <div className="signin">
-        <div className="signin-header">
+      <div>
+        <div className={styles.header}>
           Sign in or register to save this home
         </div>
-        <div className="signin-body">
-          <div className="signin-form">
-            <form onSubmit={this.handleSubmit}>
-              <input type="email" defaultValue={value} onChange={this.handleChange} />
-              <input id="submitButton" type="submit" value="Submit" />
-              <p className="signin-legal">By submitting, I accept...</p>
+        <div className={styles.body}>
+          <div>
+            <form className={styles.form} onSubmit={this.handleSubmit}>
+              <input className={styles.input} type="email" defaultValue={value} onChange={this.handleChange} />
+              <input className={styles.submit} type="submit" value="Submit" />
+              <p className={styles.legal}>By submitting, I accept...</p>
             </form>
           </div>
           <div>
-            <button id="button-apple" type="button">
+            <button className={styles.apple} type="button">
               Connect with Apple
             </button>
-            <button id="button-facebook" type="button">Connect with Facebook</button>
-            <button id="button-google" type="button">Connect with Google</button>
+            <button className={styles.facebook} type="button">Connect with Facebook</button>
+            <button className={styles.google} type="button">Connect with Google</button>
           </div>
         </div>
       </div>

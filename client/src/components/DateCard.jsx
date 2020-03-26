@@ -1,10 +1,11 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import styles from '../styles/tourbooking.css';
 
 const DateCard = ({ handleSelect, day }) => (
   <span>
-    <button className="date-card" value="Mon" type="button" onClick={handleSelect}>
+    <button className={styles.card} value="Mon" type="button" onClick={handleSelect}>
       <div>
         <div>
           {day.day}

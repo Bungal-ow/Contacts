@@ -6,6 +6,7 @@
 import React, { Component } from 'react';
 import DateCards from './DateCards';
 import { daysController, arrayOfDays } from '../utils/getDates';
+import styles from '../styles/tourbooking.css';
 
 class TourBooking extends Component {
   constructor(props) {
@@ -58,43 +59,41 @@ class TourBooking extends Component {
 
     return (
       <div>
-        <div className="tour-header">
+        <div className={styles.header}>
           Visit this home
         </div>
-        <div className="tour-body">
-          <button className="nav" onClick={this.handleNav} value="-1" type="button">←</button>
-          <DateCards className="date-cards" days={days} handleSelect={this.handleSelect} />
-          <button className="nav" onClick={this.handleNav} value="1" type="button">→</button>
+        <div className={styles.body}>
+          <button className={styles.nav} onClick={this.handleNav} value="-1" type="button">←</button>
+          <DateCards className={styles.cards} days={days} handleSelect={this.handleSelect} />
+          <button className={styles.nav} onClick={this.handleNav} value="1" type="button">→</button>
         </div>
-        <div className="timeSelector">
-          <form onSubmit={this.handleSubmit}>
-            <select className="tour-select" value={timeslot} onChange={this.handleChange}>
-              <option value="0930">9:30 AM</option>
-              <option value="1000">10:00 AM</option>
-              <option value="1030">10:30 AM</option>
-              <option value="1100">11:00 AM</option>
-              <option value="1130">11:30 AM</option>
-              <option value="1200">12:00 PM</option>
-              <option value="1230">12:30 PM</option>
-              <option value="1300">1:00 PM</option>
-              <option value="1330">1:30 PM</option>
-              <option value="1400">2:00 PM</option>
-              <option value="1430">2:30 PM</option>
-              <option value="1500">3:00 PM</option>
-              <option value="1530">3:30 PM</option>
-              <option value="1600">4:00 PM</option>
-              <option value="1630">4:30 PM</option>
-              <option value="1700">5:00 PM</option>
-              <option value="1730">5:30 PM</option>
-              <option value="1800">6:00 PM</option>
-              <option value="1830">6:30 PM</option>
-              <option value="1900">7:00 PM</option>
-              <option value="1930">7:30 PM</option>
-            </select>
-            <br></br>
-            <input className="tour-submit" type="submit" value="Request this time" />
-          </form>
-        </div>
+        <form className={styles.form} onSubmit={this.handleSubmit}>
+          <select className={styles.select} value={timeslot} onChange={this.handleChange}>
+            <option value="0930">9:30 AM</option>
+            <option value="1000">10:00 AM</option>
+            <option value="1030">10:30 AM</option>
+            <option value="1100">11:00 AM</option>
+            <option value="1130">11:30 AM</option>
+            <option value="1200">12:00 PM</option>
+            <option value="1230">12:30 PM</option>
+            <option value="1300">1:00 PM</option>
+            <option value="1330">1:30 PM</option>
+            <option value="1400">2:00 PM</option>
+            <option value="1430">2:30 PM</option>
+            <option value="1500">3:00 PM</option>
+            <option value="1530">3:30 PM</option>
+            <option value="1600">4:00 PM</option>
+            <option value="1630">4:30 PM</option>
+            <option value="1700">5:00 PM</option>
+            <option value="1730">5:30 PM</option>
+            <option value="1800">6:00 PM</option>
+            <option value="1830">6:30 PM</option>
+            <option value="1900">7:00 PM</option>
+            <option value="1930">7:30 PM</option>
+          </select>
+          <br></br>
+          <input className={styles.submit} type="submit" value="Request this time" />
+        </form>
       </div>
     );
   }
