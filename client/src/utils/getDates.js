@@ -8,16 +8,11 @@ const daysController = (days, delta) => {
     const yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
     alteredDays = [yesterday, today, tomorrow];
   } else {
-    const forward = days.map((day) => {
-      return new Date(day.setDate(day.getDate() + 1));
-    });
-    const backward = days.map((day) => {
-      return new Date(day.setDate(day.getDate() - 2));
-    });
+    const forward = days.map((day) => new Date(day.setDate(day.getDate() + 1)));
+    const backward = days.map((day) => new Date(day.setDate(day.getDate() - 2)));
     if (delta === 1) {
       alteredDays = forward;
     }
-
     if (delta === -1) {
       alteredDays = backward;
     }
