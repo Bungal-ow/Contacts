@@ -84,7 +84,7 @@ class Summary extends Component {
                   <span>For sale</span>
                   <span> | </span>
                   <span id="abestimate">
-                    Abestimate
+                    Abodestimate
                   </span>
                 </div>
                 <div>

@@ -26,39 +26,37 @@
 
 .input {
   color: gray;
-  border-style: solid;
-  border-width: 1px;
-  border-color: lightgray;
-  border-radius: 3px;
   font-size: 16px;
   font-weight: lighter;
   width: 92%;
   height: 32px;
+  border-color: lightgray;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
   padding-left: 15px;
-  /* padding: 7px 15px 7px 0px; */
 }
 
 
 
 .textarea {
   color: gray;
-  border-style: solid;
-  border-width: 1px;
-  border-color: lightgray;
-  border-radius: 2px;
   font-size: 16px;
   font-weight: lighter;
   width: 92%;
+  border-color: lightgray;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
   padding-top: 7px;
-  padding-bottom: 7px;
   padding-left: 15px;
-  /* padding: 7px 15px 7px 15px; */
+  padding-bottom: 7px;
 }
 
 .legal{
-  padding-top: 5px;
   font-size: 10px;
   width: 100%;
+  padding-top: 5px;
 }
 
 .submit {

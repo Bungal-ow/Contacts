@@ -2,13 +2,6 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-/* .main {
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-} */
-
 .header {
   width: 100%;
   display: flex;
