@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
 const faker = require('faker');
+const mongoose = require('mongoose');
 const {
   Agent,
   Property,
   save,
   find,
-} = require('./index.js');
+} = require('./entry.js');
 
 const generateRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -53,10 +54,13 @@ find({}, (docs) => {
   const quantity = 100 - docs.length;
   if (docs.length >= 0 && docs.length < 100) {
     const data = seedProperties(quantity);
-    data.forEach((property) => {
-      save(property, () => {});
+    const saves = data.map((property) => {
+      return save(property);
     });
-    console.log(`Database seeded with ${quantity} property entries`);
+    Promise.all(saves).then(() => {
+      console.log(`Database seeded with ${quantity} property entries`);
+      mongoose.connection.close();
+    });
   } else {
     console.log('Database contains sufficient seeded data');
   }
