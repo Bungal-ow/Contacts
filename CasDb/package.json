@@ -1,0 +1,32 @@
+{
+  "name": "casdb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cassandra-driver": "^4.5.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "npm": "^6.14.4"
+  },
+  "dependencies": {
+    "assert": "^2.0.0",
+    "async": "^3.2.0",
+    "body-parser": "^1.19.0",
+    "faker": "^4.1.0",
+    "fs": "0.0.1-security",
+    "jquery": "^3.4.1",
+    "tls": "0.0.1"
+  }
+}
