@@ -7,7 +7,7 @@ const {
   Property,
   save,
   find,
-} = require('./entry.js');
+} = require('./index.js');
 
 const generateRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -54,9 +54,7 @@ find({}, (docs) => {
   const quantity = 100 - docs.length;
   if (docs.length >= 0 && docs.length < 100) {
     const data = seedProperties(quantity);
-    const saves = data.map((property) => {
-      return save(property);
-    });
+    const saves = data.map((property) => save(property));
     Promise.all(saves).then(() => {
       console.log(`Database seeded with ${quantity} property entries`);
       mongoose.connection.close();

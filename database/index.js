@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://database/abode_dh', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/abode_dh', { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((error) => console.error(error));
 
 const propertySchema = mongoose.Schema({
@@ -26,9 +26,7 @@ const agentSchema = mongoose.Schema({
 const Property = mongoose.model('Property', propertySchema);
 const Agent = mongoose.model('Agent', agentSchema);
 
-const save = (document) => {
-  return document.save();
-};
+const save = (document) => document.save();
 
 const find = (options, next) => {
   Property.find(options, (err, docs) => {
