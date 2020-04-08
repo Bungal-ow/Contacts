@@ -9,7 +9,8 @@ module.exports = {
     let data = [];
     let func;
     let count = 0;
-    while (i < 400) {
+    // 10 m users
+    while (i < 1000) {
       data = [];
       count = 0;
       while (count < 10000) {

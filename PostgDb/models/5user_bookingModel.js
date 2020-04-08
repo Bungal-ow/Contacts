@@ -8,7 +8,7 @@ const userBookingModel = sequelize.define('user_bookings', {
     allowNull: false,
     primaryKey: true,
   },
-  BookingTime: {
+  bookingTime: {
     type: Sequelize.STRING,
     allowNull: false,
   },
