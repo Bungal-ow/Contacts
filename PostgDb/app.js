@@ -9,9 +9,10 @@ const propertyAgencyMdoel = require('./models/3property_Agency_Model.js');
 const userModel = require('./models/4userModel.js');
 const userBookingModel = require('./models/5user_bookingModel.js');
 
-propertyAgencyMdoel.belongsTo(agencyModel, { foreignKey: 'agency_id' });
+propertyAgencyMdoel.belongsTo(agencyModel, { foreignKey: 'agent_id' });
 propertyAgencyMdoel.belongsTo(propertyModel, { foreignKey: 'property_id' });
 userBookingModel.belongsTo(userModel, { foreignKey: 'user_id' });
+userBookingModel.belongsTo(propertyModel, { foreignKey: 'property_id' });
 
 // Create DB
 sequelize

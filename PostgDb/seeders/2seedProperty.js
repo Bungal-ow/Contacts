@@ -12,7 +12,7 @@ module.exports = {
     let data = [];
     let func;
     let count = 0;
-
+    // 10 m house
     while (i < 1000) {
       data = [];
       count = 0;
@@ -23,8 +23,8 @@ module.exports = {
           address: `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.zipCode()}`,
           numBath: generateRandomNum(1, 5),
           numBed: generateRandomNum(1, 5),
-          sqFt: numberWithCommas(generateRandomNum(10, 30) * 100),
-          marketValEst: generateRandomNum(100000, 500000),
+          sqFt: generateRandomNum(10, 30) * 100,
+          marketValEst: generateRandomNum(100000, 5000000),
           monthlyPayment: generateRandomNum(1000, 5000),
           createdAt: date,
           updatedAt: date,

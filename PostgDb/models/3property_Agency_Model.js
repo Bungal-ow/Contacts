@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const sequelize = require('../seqlizconnect.js');
 
 // define = instance of Property
-const propertyAgencyMdoel = sequelize.define('property_agencies', {
+const propertyAgencyMdoel = sequelize.define('property_agents', {
   house_agency_id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
