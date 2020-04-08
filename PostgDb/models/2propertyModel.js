@@ -26,7 +26,7 @@ const propertyModel = sequelize.define('properties', {
     allowNull: false,
   },
   sqFt: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
   marketValEst: {

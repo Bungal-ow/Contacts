@@ -10,16 +10,16 @@ module.exports = {
     let data = [];
     let func;
     let count = 0;
-    // 4m
-    while (i < 400) {
+    // 10m agents
+    while (i < 1000) {
       data = [];
       count = 0;
       while (count < 10000) {
         const date = new Date();
         data.push({
-          agency_id: entries,
+          agent_id: entries,
           name: faker.name.findName(),
-          rating: generateRandomNum(0, 5),
+          rating: generateRandomNum(3, 5),
           numberSales: generateRandomNum(0, 30),
           phoneNum: faker.phone.phoneNumberFormat(0),
           email: faker.internet.email(),
@@ -29,11 +29,10 @@ module.exports = {
         entries += 1;
         count += 1;
       }
-      func = await queryInterface.bulkInsert('agencies', data, {});
+      func = await queryInterface.bulkInsert('agents', data, {});
       i += 1;
       console.log(i);
     }
-    
     return func;
   },
   down: (queryInterface, Sequelize) => queryInterface.bulkDelete('agencies', null, {}),

@@ -1,14 +1,14 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../seqlizconnect.js');
 // define = instance of Property
-const agencyModel = sequelize.define('agencies', {
+const agencyModel = sequelize.define('agents', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
   },
-  agency_id: {
+  agent_id: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
