@@ -27,8 +27,9 @@ class Summary extends Component {
   }
 
   componentDidMount() {
-    $.get('/properties', (data) => {
-      this.setState({ summary: data[Math.floor(Math.random() * data.length)] });
+    $.get('/api/property/:id', (data) => {
+      // console.log(data[0]);
+      this.setState({ summary: data[0] });
     });
   }
 
@@ -70,9 +71,9 @@ class Summary extends Component {
           <div className={styles.body}>
             <div className={styles.specs}>
               <span className={styles.price}>${summary.marketValEst}</span>
-              <span>{`${summary.numBd}bd`}</span>
+              <span>{`${summary.numBed}bd`}</span>
               <span> | </span>
-              <span>{`${summary.numBa}ba`}</span>
+              <span>{`${summary.numBath}ba`}</span>
               <span> | </span>
               <span>{`${summary.sqft} sqft.`}</span>
               <div>
