@@ -7,8 +7,7 @@ CREATE TABLE agents
     "phoneNum" character varying(255) NOT NULL,
     email character varying(255) NOT NULL,
     "createdAt" character varying(255) NOT NULL,
-    "updatedAt" character varying(255) NOT NULL,
-    CONSTRAINT agents_pkey PRIMARY KEY (id)
+    "updatedAt" character varying(255) NOT NULL
 );
 
 CREATE TABLE properties
@@ -21,8 +20,7 @@ CREATE TABLE properties
     "marketValEst" integer NOT NULL,
     "monthlyPayment" integer NOT NULL,
     "createdAt" character varying(255) NOT NULL,
-    "updatedAt" character varying(255) NOT NULL,
-    CONSTRAINT properties_pkey PRIMARY KEY (id)
+    "updatedAt" character varying(255) NOT NULL
 );
 
 CREATE TABLE property_agents
@@ -32,16 +30,7 @@ CREATE TABLE property_agents
     title character varying(255) NOT NULL,
     "propertyID" integer,
     "createdAt" character varying(255) NOT NULL,
-    "updatedAt" character varying(255) NOT NULL,
-    CONSTRAINT property_agents_pkey PRIMARY KEY (id),
-    CONSTRAINT property_agents_agentID_fkey FOREIGN KEY ("agentID")
-        REFERENCES agents (id) MATCH SIMPLE
-        ON UPDATE CASCADE
-        ON DELETE SET NULL,
-    CONSTRAINT property_agents_propertyID_fkey FOREIGN KEY ("propertyID")
-        REFERENCES properties (id) MATCH SIMPLE
-        ON UPDATE CASCADE
-        ON DELETE SET NULL
+    "updatedAt" character varying(255) NOT NULL
 );
 
 CREATE TABLE users
@@ -50,8 +39,7 @@ CREATE TABLE users
     email character varying(255) NOT NULL,
     password character varying(255) NOT NULL,
     "createdAt" character varying(255) NOT NULL,
-    "updatedAt" character varying(255) NOT NULL,
-    CONSTRAINT users_pkey PRIMARY KEY (id)
+    "updatedAt" character varying(255) NOT NULL
 );
 
 CREATE TABLE bookings
@@ -61,14 +49,5 @@ CREATE TABLE bookings
     "userID" integer,
     "propertyID" integer,
     "createdAt" character varying(255) NOT NULL,
-    "updatedAt" character varying(255) NOT NULL,
-    CONSTRAINT bookings_pkey PRIMARY KEY (id),
-    CONSTRAINT bookings_propertyID_fkey FOREIGN KEY ("propertyID")
-        REFERENCES properties (id) MATCH SIMPLE
-        ON UPDATE CASCADE
-        ON DELETE SET NULL,
-    CONSTRAINT bookings_userID_fkey FOREIGN KEY ("userID")
-        REFERENCES users (id) MATCH SIMPLE
-        ON UPDATE CASCADE
-        ON DELETE SET NULL
+    "updatedAt" character varying(255) NOT NULL
 );
