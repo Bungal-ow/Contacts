@@ -19,12 +19,12 @@ ALTER TABLE property_agents ADD CONSTRAINT property_agents_propertyID_fkey FOREI
         ON UPDATE CASCADE
         ON DELETE SET NULL;
 
-ALTER TABLE property_agents ADD CONSTRAINT bookings_propertyID_fkey FOREIGN KEY ("propertyID")
+ALTER TABLE bookings ADD CONSTRAINT bookings_propertyID_fkey FOREIGN KEY ("propertyID")
         REFERENCES properties (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE SET NULL;
 
-ALTER TABLE property_agents ADD CONSTRAINT bookings_userID_fkey FOREIGN KEY ("userID")
+ALTER TABLE bookings ADD CONSTRAINT bookings_userID_fkey FOREIGN KEY ("userID")
         REFERENCES users (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE SET NULL;
