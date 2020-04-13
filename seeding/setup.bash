@@ -7,5 +7,4 @@ nvm install 8.17.0
 node -e "console.log('Running Node.js ' + process.version)"
 sudo apt-get install postgresql postgresql-contrib
 
-
-bash step.bash
+#bash step.bash to run 
