@@ -14,11 +14,11 @@ class Agent extends Component {
   }
 
   render() {
-    const { agent, star } = this.props;
-
+    const { agent, star, handleID } = this.props;
+    const agentID = agent.id ? agent.id : 0;
     return (
       <span className={styles.agent}>
-        <input className={styles.radio} type="radio" id={agent.id} />
+        <input className={styles.radio} type="radio" id={agent.id} onClick={() => handleID(agentID)} />
         <label htmlFor={agent.id}>
           <span className={styles.avatar}><img src={img} alt="avatar"></img></span>
         </label>
@@ -29,7 +29,7 @@ class Agent extends Component {
             <img src={star} alt="star" height="10" />
             {`${agent.rating}/5 Rating`}
           </div>
-          <div>{`${agent.numSales} Recent sales`}</div>
+          <div>{`${agent.numberSales} Recent sales`}</div>
           <div>{agent.phoneNum}</div>
         </label>
       </span>

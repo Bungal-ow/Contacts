@@ -51,3 +51,15 @@ CREATE TABLE bookings
     "createdAt" character varying(255) NOT NULL,
     "updatedAt" character varying(255) NOT NULL
 );
+
+CREATE TABLE contactagents
+(
+    id serial NOT NULL,
+    name character varying(255) NOT NULL,
+    "phoneNum" character varying(255) NOT NULL,
+    email character varying(255) NOT NULL,
+    message character varying(255) NOT NULL,
+    "agentID" integer,
+    "createdAt" character varying(255) NOT NULL,
+    "updatedAt" character varying(255) NOT NULL
+);

@@ -5,7 +5,7 @@ import styles from '../styles/tourbooking.css';
 
 const DateCard = ({ handleSelect, day }) => (
   <span>
-    <button className={styles.card} value="Mon" type="button" onClick={handleSelect}>
+    <button className={styles.card} value={`${day.month} ${day.date}`} type="button" onClick={handleSelect}>
       <div>
         <div>
           {day.day}

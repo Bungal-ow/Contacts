@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable radix */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable no-alert */
+import $ from 'jquery';
 import React, { Component } from 'react';
 import DateCards from './DateCards';
 import { daysController, arrayOfDays } from '../utils/getDates';
@@ -49,14 +51,20 @@ class TourBooking extends Component {
   }
 
   handleSubmit(event) {
-    const { timeslot } = this.state;
-    alert(timeslot);
     event.preventDefault();
+    const { timeslot, date } = this.state;
+    const { property } = this.props;
+    const bookingTime = `${date} ${timeslot}`;
+    const propertyID = property.id;
+    const userID = 100000001;
+    $.post('/api/houseBooking', {
+      bookingTime, userID, propertyID,
+    });
+    // console.log(bookingTime, property.id);
   }
 
   render() {
     const { timeslot, days } = this.state;
-
     return (
       <div>
         <div className={styles.header}>

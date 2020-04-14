@@ -20,6 +20,8 @@ app.put('/api/property/:id', controller.property.put);
 app.delete('/api/property/:id', controller.property.delete);
 app.get('/api/houseagents/:id', controller.agents.getAgents);
 app.get('/api/houseBooking/:id', controller.houseBooking.getBooking);
+app.post('/api/houseBooking', controller.houseBooking.post);
+app.post('/api/contactagents', controller.contactagents.post);
 
 app.listen(port, () => {
   console.log(`Server is running, listening on port ${port}`);

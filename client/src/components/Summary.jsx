@@ -19,6 +19,7 @@ class Summary extends Component {
     super(props);
     this.state = {
       summary: {},
+      agents: [],
       show: false,
       type: null,
     };
@@ -28,12 +29,18 @@ class Summary extends Component {
 
   componentDidMount() {
     $.get('/api/property/:id', (data) => {
-      // console.log(data[0]);
       this.setState({ summary: data[0] });
     });
   }
 
   showModal(type) {
+    const { summary, agents } = this.state;
+    if (type === 'contact') {
+      $.get(`/api/houseagents/${summary.id}`, (data) => {
+        const a = [...agents, ...data];
+        this.setState({ agents: a });
+      });
+    }
     this.setState({
       show: true,
       type,
@@ -45,7 +52,9 @@ class Summary extends Component {
   }
 
   render() {
-    const { show, type, summary } = this.state;
+    const {
+      show, type, summary, agents,
+    } = this.state;
     let modal;
 
     if (show) {
@@ -55,6 +64,7 @@ class Summary extends Component {
           star={star}
           type={type}
           handleClose={this.hideModal}
+          agents={agents}
           property={summary}
         />
       );
@@ -75,7 +85,7 @@ class Summary extends Component {
               <span> | </span>
               <span>{`${summary.numBath}ba`}</span>
               <span> | </span>
-              <span>{`${summary.sqft} sqft.`}</span>
+              <span>{`${summary.sqFt} sqft.`}</span>
               <div>
                 {summary.address}
               </div>

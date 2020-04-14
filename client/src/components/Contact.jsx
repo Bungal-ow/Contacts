@@ -1,24 +1,27 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-alert */
+import $ from 'jquery';
 import React, { Component } from 'react';
 import ContactForm from './ContactForm';
 import Agent from './Agent';
 import styles from '../styles/contact.css';
+
 
 class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      phone: '',
+      phoneNum: '',
       email: '',
       message: '',
-      selectedAgent: null,
+      agentID: 0,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleID = this.handleID.bind(this);
   }
 
   componentDidMount() {
@@ -29,13 +32,15 @@ class Contact extends Component {
   handleSubmit(event) {
     const {
       name,
-      phone,
+      phoneNum,
       email,
       message,
-      selectedAgent,
+      agentID,
     } = this.state;
-
-    alert(`Submitted ${name}, ${phone}, ${email}, ${message}, ${selectedAgent}`);
+    $.post('/api/contactagents', {
+      name, phoneNum, email, message, agentID,
+    });
+    alert(`Submitted ${name}, ${phoneNum}, ${email}, ${message}, ${agentID}`);
     event.preventDefault();
   }
 
@@ -43,10 +48,13 @@ class Contact extends Component {
     this.setState({ [target.name]: target.value });
   }
 
-  render() {
-    const { property, star } = this.props;
-    const { message } = this.state;
+  handleID(id) {
+    this.setState({ agentID: id });
+  }
 
+  render() {
+    const { star, agents } = this.props;
+    const { message } = this.state;
     return (
       <div className={styles.contact}>
         <div className={styles.header}>
@@ -59,9 +67,9 @@ class Contact extends Component {
             defaultMessage={message}
           />
           <div className={styles.agents}>
-            {property.contact.map((agent) => (
+            {agents.map((agent) => (
               <div>
-                <Agent star={star} agent={agent} />
+                <Agent star={star} agent={agent} handleID={this.handleID} />
               </div>
             ))}
             <p className={styles.placeholder}>

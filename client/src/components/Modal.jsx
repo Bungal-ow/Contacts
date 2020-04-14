@@ -12,6 +12,7 @@ const Modal = ({
   type,
   property,
   star,
+  agents,
 }) => {
   let body;
   let modalModifier;
@@ -23,9 +24,9 @@ const Modal = ({
     body = <Share />;
     modalModifier = styles.share;
   } else if (type === 'contact') {
-    body = <Contact star={star} property={property} />;
+    body = <Contact star={star} property={property} agents={agents} />;
   } else if (type === 'tour') {
-    body = <TourBooking />;
+    body = <TourBooking property={property} />;
     modalModifier = styles.tour;
   }
 
