@@ -28,3 +28,8 @@ ALTER TABLE bookings ADD CONSTRAINT bookings_userID_fkey FOREIGN KEY ("userID")
         REFERENCES users (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE SET NULL;
+
+create index proagentsindex on property_agents ("agentID");
+create index proindex on property_agents ("propertyID");
+create index userbookingsindex on bookings ("userID");
+create index propbookingsindex on bookings ("propertyID");
