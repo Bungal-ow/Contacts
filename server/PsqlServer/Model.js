@@ -26,10 +26,10 @@ module.exports = {
     delete: (id) => db.pool.query(`DELETE FROM properties WHERE id = ${id} RETURNING id`),
   },
   agents: {
-    getAgents: (id) => db.pool.query(`SELECT * FROM agents WHERE id IN (SELECT agentID FROM property_agents WHERE property_agents.propertyID = ${id})`),
+    getAgents: (id) => db.pool.query(`SELECT * FROM agents WHERE id IN (SELECT "agentID" FROM property_agents WHERE "propertyID" = ${id})`),
   },
   houseBooking: {
-    getBooking: (id) => db.pool.query(`SELECT "bookingTime" FROM user_bookings WHERE propertyID = ${id}`),
+    getBooking: (id) => db.pool.query(`SELECT "bookingTime" FROM user_bookings WHERE "propertyID" = ${id}`),
     post: ({
       bookingTime, userID, propertyID, createdAt, updatedAt
     }) => {
