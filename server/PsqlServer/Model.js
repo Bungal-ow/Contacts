@@ -19,17 +19,17 @@ module.exports = {
       const aa = 12314;
       const date = new Date();
       return db.pool.query(
-        `UPDATE properties SET address=$1, "numBath"=$2, "numBed"=$3, "sqFt"=$4, "marketValEst"=$5, "monthlyPayment"=$6, "createdAt"=$7, "updatedAt"=$8 WHERE id=${aa}`,
+        `UPDATE properties SET address=$1, "numBath"=$2, "numBed"=$3, "sqFt"=$4, "marketValEst"=$5, "monthlyPayment"=$6, "createdAt"=$7, "updatedAt"=$8 WHERE id=${aa} RETURNING id`,
         ['123', 1, 2, 12321, 123213, 2123, date, date],
       );
     },
-    delete: (id) => db.pool.query(`DELETE FROM properties WHERE id = ${id} RETURNING id`),
+    delete: (id) => db.pool.query(`DELETE FROM properties WHERE id = ${id}`),
   },
   agents: {
     getAgents: (id) => db.pool.query(`SELECT * FROM agents WHERE id IN (SELECT "agentID" FROM property_agents WHERE "propertyID" = ${id})`),
   },
   houseBooking: {
-    getBooking: (id) => db.pool.query(`SELECT "bookingTime" FROM user_bookings WHERE "propertyID" = ${id}`),
+    getBooking: (id) => db.pool.query(`SELECT "bookingTime" FROM bookings WHERE "propertyID" = ${id}`),
     post: ({
       bookingTime, userID, propertyID, createdAt, updatedAt
     }) => {
@@ -37,7 +37,7 @@ module.exports = {
       const date = new Date();
       const id = faker.random.number({ min: 1, max: 10000000 });
       return db.pool.query(
-        'INSERT INTO user_bookings ("bookingTime", "userID", "propertyID", "createdAt", "updatedAt") VALUES ($1, $2, $3, $4, $5) RETURNING id',
+        'INSERT INTO bookings ("bookingTime", "userID", "propertyID", "createdAt", "updatedAt") VALUES ($1, $2, $3, $4, $5) RETURNING id',
         ['a', 1000000, id, date, date],
       );
     },

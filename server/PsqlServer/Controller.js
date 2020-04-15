@@ -22,7 +22,7 @@ module.exports = {
         .catch((err) => res.status(400).send(err));
     },
     delete: (req, res) => {
-      const id = 10000001;
+      const id = faker.random.number({ min: 10000000, max: 10030000 });
       // const id = parseInt(req.params.id);
       model.property.delete(id)
         .then((result) => res.status(201).send(`User deleted with ID: ${result.rows[0].id}`))
