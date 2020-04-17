@@ -5,10 +5,12 @@ const model = require('./Model.js');
 module.exports = {
   property: {
     get: (req, res) => {
-      // const id = parseInt(req.params.id);
-      const id = faker.random.number({ min: 1, max: 10000000 });
+      const id = parseInt(req.params.id);
+      // const id = faker.random.number({ min: 1, max: 10000000 });
       model.property.get(id)
-        .then((result) => res.status(200).send(result.rows))
+        .then((result) => {
+          return res.status(200).send(result.rows);
+        })
         .catch((err) => res.status(400).send(err));
     },
     post: (req, res) => {

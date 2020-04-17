@@ -28,7 +28,13 @@ class Summary extends Component {
   }
 
   componentDidMount() {
-    $.get('/api/property/:id', (data) => {
+    const splitUrl = window.location.href.split('/');
+    const index = splitUrl[3];
+    this.getHouse(index);
+  }
+
+  getHouse(index) {
+    $.get(`/api/property/${index}`, (data) => {
       this.setState({ summary: data[0] });
     });
   }
